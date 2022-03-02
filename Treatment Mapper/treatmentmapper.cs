@@ -26,7 +26,6 @@ namespace Treatment_Mapper
             try 
             {
                 string exePath = Application.StartupPath;
-                //int match;
                 int progress = 0;
 
                 var masterReader = new StreamReader(masterPath);
@@ -88,7 +87,7 @@ namespace Treatment_Mapper
                         if (reportProgress != null)
                             reportProgress.Report(p);
 
-                        //var results = new List<Results>();
+                        
                         var results = new ConcurrentBag<Results>();
 
                         Parallel.ForEach(masterlist, M =>
@@ -101,37 +100,18 @@ namespace Treatment_Mapper
                             string nomenclature = M.nomenclature.ToString();
                             nomenclature = nomenclature.ToLower();
 
-                            // ThreadLocal<int> match1 = new ThreadLocal<int>(() =>
-                            // {
-                            //   return Fuzz.WeightedRatio(description, nomenclature);
-                            // });
+                         
                             ThreadLocal<int> match = new ThreadLocal<int>();
                             match.Value = Fuzz.WeightedRatio(description, nomenclature);
 
-                            //match = Fuzz.WeightedRatio(description, nomenclature);
+                           
 
                             if (match.Value >= accuracy)
                             {
                                 results.Add(new Results(nomenclature, match.Value, M.code));
-                                //T.dentally_code = M.code;
-                                //log.WriteLine($"{time},{description},{nomenclature},{match},{M.code}");
-                                //break;
+                               
                             }
                             match.Dispose();
-                            //int i = 100;
-                            // while (i >= accuracy)
-                            //{
-
-                            // if (match >= i)
-                            // {
-                            //     results.Add(new Results(nomenclature, match, M.code));
-                            //T.DentallyCode = M.code;
-                            //     log.WriteLine($"{time},{description},{nomenclature},{match},{M.code}");
-                            //    break;
-                            //  }
-                            //  i--;
-                            //}
-
 
                         });
                         var finalResult = (from r in results
@@ -144,7 +124,7 @@ namespace Treatment_Mapper
                                           orderby r.matchResult descending
                                           select r.nomenResult).FirstOrDefault();
 
-                        if (finalMatch <= thresholdValue || finalResult <= 0) //&& finalResult >= 0)
+                        if (finalMatch <= thresholdValue || finalResult <= 0)
                         {
                            restart: string userCode = Interaction.InputBox($"Original Description : {T.Description} Best match found : {finalDesc} Match : {finalMatch}, Please confirm or enter new code.", "Confirm Code",$"{finalResult}");
                             if (userCode == "")
@@ -169,7 +149,6 @@ namespace Treatment_Mapper
                         }
                         else { T.DentallyCode = finalResult; }
 
-                        //T.DentallyCode = finalResult;
 
                         if (logcheck == true)
                         {
@@ -211,7 +190,7 @@ namespace Treatment_Mapper
                         if (reportProgress != null)
                             reportProgress.Report(p);
 
-                        //var results = new List<Results>();
+                       
                         var results = new ConcurrentBag<Results>();
                         Parallel.ForEach(masterlist, M =>
                        {
@@ -225,30 +204,15 @@ namespace Treatment_Mapper
                            ThreadLocal<int> match = new ThreadLocal<int>();
                            match.Value = Fuzz.WeightedRatio(description, nomenclature);
 
-                           //match = Fuzz.WeightedRatio(description, nomenclature);
+                           
 
                            if (match.Value >= accuracy)
                            {
-                               results.Add(new Results(nomenclature, match.Value, M.code));
-                                //T.dentally_code = M.code;
-                                //log.WriteLine($"{time},{description},{nomenclature},{match},{M.code}");
-                                //break;
+                               results.Add(new Results(nomenclature, match.Value, M.code)); 
                            }
-                           match.Dispose();
-                            //int i = 100;
-                            //while (i >= accuracy)
-                            //{
-
-                            //if (match >= i)
-                            // {
-                            //   results.Add(new Results(nomenclature, match, M.code));
-                            //T.dentally_code = M.code;
-                            // log.WriteLine($"{time},{description},{nomenclature},{match},{M.code}");
-                            //  break;
-                            //}
-                            //i--;
-                            //}  
+                           match.Dispose();   
                         });
+
                         var finalResult = (from r in results
                                            orderby r.matchResult descending
                                            select r.codeResult).FirstOrDefault();
@@ -287,7 +251,6 @@ namespace Treatment_Mapper
                         }
                         else { T.dentally_code = finalResult; }
 
-                        //T.dentally_code = finalResult;
 
                         if (logcheck == true) 
                         {
