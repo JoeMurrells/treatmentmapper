@@ -1,0 +1,6 @@
+28/02/2022 11:48:01,Source CSV = C:\test\test maps\BUPA_EXACT_TEST_treatment_map.csv
+28/02/2022 11:48:01,Master CSV = C:\Users\Job0\source\repos\Treatment Mapper\Treatment Mapper\bin\Debug\MasterCSV\bupa_master.csv
+28/02/2022 11:48:01,Practice Ref = test
+28/02/2022 11:48:01,System = EXACT
+28/02/2022 11:48:01,Accuracy = 70
+Description, Nomenclature, Match Value, Code Used
