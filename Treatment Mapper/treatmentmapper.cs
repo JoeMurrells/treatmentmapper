@@ -45,6 +45,12 @@ namespace Treatment_Mapper
 
                 string csvName = null;
 
+                List<int> valid_codes = new List<int>();
+
+                foreach (var T in masterlist)
+                {
+                    valid_codes.Add(T.code);
+                }
 
                 if (system == "R4")
                 {
@@ -128,6 +134,10 @@ namespace Treatment_Mapper
                         {
                            restart: string userCode = Interaction.InputBox($"Original Description : {T.Description} Best match found : {finalDesc} Match : {finalMatch}, Please confirm or enter new code.", "Confirm Code",$"{finalResult}");
                             if (userCode == "")
+                            {
+                                goto restart;
+                            }
+                            else if(valid_codes.Contains(Convert.ToInt32(userCode)) == false)
                             {
                                 goto restart;
                             }
@@ -228,6 +238,10 @@ namespace Treatment_Mapper
                         {
                             restart: string userCode = Interaction.InputBox($"Original Description : {T.exact_desc} Best match found : {finalDesc} Match : {finalMatch}, Please confirm or enter new code.", "Confirm Code", $"{finalResult}");
                             if (userCode == "") 
+                            {
+                                goto restart;
+                            }
+                            else if (valid_codes.Contains(Convert.ToInt32(userCode)) == false)
                             {
                                 goto restart;
                             }
