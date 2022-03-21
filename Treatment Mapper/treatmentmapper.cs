@@ -79,7 +79,8 @@ namespace Treatment_Mapper
                     var r4list = r4treatments.ToList();
                     outputcsv.WriteHeader<R4>();
                     outputcsv.NextRecord();
-                    int p = 1;
+                    int p = 0;
+                    var inputlist = r4list;
                     foreach (var T in r4list)
                     {
                         if (T.DentallyCode >=0 && skip == true)
@@ -98,9 +99,9 @@ namespace Treatment_Mapper
 
                         Parallel.ForEach(masterlist, M =>
                         {
-                            string description = null;
+                            
 
-                            description = T.Description.ToString();
+                            string description = T.Description.ToString();
                             description = description.ToLower();
 
                             string nomenclature = M.nomenclature.ToString();
@@ -132,17 +133,18 @@ namespace Treatment_Mapper
 
                         if (finalMatch <= thresholdValue || finalResult <= 0)
                         {
-                           restart: string userCode = Interaction.InputBox($"Original Description : {T.Description} Best match found : {finalDesc} Match : {finalMatch}, Please confirm or enter new code.", "Confirm Code",$"{finalResult}");
-                            if (userCode == "")
+                        string userCode = Interaction.InputBox($"Original Description : {T.Description} Best match found : {finalDesc} Match : {finalMatch}, Please confirm or enter new code.", "Confirm Code", $"{finalResult}");
+
+                            int convertedCode;
+
+                            while (int.TryParse(userCode, out convertedCode) == false || valid_codes.Contains(Convert.ToInt32(userCode)) == false)
                             {
-                                goto restart;
+                                MessageBox.Show("Invalid Code Entered");
+                                userCode = Interaction.InputBox($"Original Description : {T.Description} Best match found : {finalDesc} Match : {finalMatch}, Please confirm or enter new code.", "Confirm Code", $"{finalResult}");
                             }
-                            else if(valid_codes.Contains(Convert.ToInt32(userCode)) == false)
-                            {
-                                goto restart;
-                            }
-                           int finaluserCode = Convert.ToInt32(userCode);
-                           T.DentallyCode = finaluserCode;
+
+                            //int finaluserCode = Convert.ToInt32(userCode);
+                            T.DentallyCode = convertedCode;
 
                             var config = new CsvConfiguration(System.Globalization.CultureInfo.InvariantCulture)
                             {
@@ -186,7 +188,7 @@ namespace Treatment_Mapper
                     var exactlist = exacttreatments.ToList();
                     outputcsv.WriteHeader<EXACT>();
                     outputcsv.NextRecord();
-                    int p = 1;
+                    int p = 0;
                     foreach (var T in exactlist)
                     {
                         if (T.dentally_code >= 0 && skip == true)
@@ -236,17 +238,17 @@ namespace Treatment_Mapper
 
                         if (finalMatch <= thresholdValue || finalResult <= 0)
                         {
-                            restart: string userCode = Interaction.InputBox($"Original Description : {T.exact_desc} Best match found : {finalDesc} Match : {finalMatch}, Please confirm or enter new code.", "Confirm Code", $"{finalResult}");
-                            if (userCode == "") 
+                            string userCode = Interaction.InputBox($"Original Description : {T.exact_desc} Best match found : {finalDesc} Match : {finalMatch}, Please confirm or enter new code.", "Confirm Code", $"{finalResult}");
+
+                            int convertedCode;
+
+                            while (int.TryParse(userCode, out convertedCode) == false || valid_codes.Contains(Convert.ToInt32(userCode)) == false)
                             {
-                                goto restart;
+                                MessageBox.Show("Invalid Code Entered");
+                                userCode = Interaction.InputBox($"Original Description : {T.exact_desc} Best match found : {finalDesc} Match : {finalMatch}, Please confirm or enter new code.", "Confirm Code", $"{finalResult}");
                             }
-                            else if (valid_codes.Contains(Convert.ToInt32(userCode)) == false)
-                            {
-                                goto restart;
-                            }
-                            int finaluserCode = Convert.ToInt32(userCode);
-                            T.dentally_code = finaluserCode;
+
+                            T.dentally_code = convertedCode;
 
                             var config = new CsvConfiguration(System.Globalization.CultureInfo.InvariantCulture)
                             {
