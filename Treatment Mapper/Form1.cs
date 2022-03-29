@@ -93,12 +93,52 @@ namespace Treatment_Mapper
                    button1.Enabled = false;
                 });
 
-                treatmentmapper map = new treatmentmapper();
+                    switch (PMS)
+                    {
+                        case "R4":
+                            R4 r4Map = new R4();
+                            await Task.Run(() =>
+                            {
+                                r4Map.R4Mapper(reportProgress, openFileDialog1.FileName, masterPath, PMS, accuracy, pRef, skipcheck.Checked, logCheck.Checked, threshold, exePath, "dentally_treatments.csv");
+                            });
+                        break;
+                        case "EXACT":
+                            EXACT exactMap = new EXACT();
+                            await Task.Run(() =>
+                            {
+                                exactMap.ExactMapper(reportProgress, openFileDialog1.FileName, masterPath, PMS, accuracy, pRef, skipcheck.Checked, logCheck.Checked, threshold, exePath, "treatment_map.csv");
+                            });
+                        break;
+                        case "BRIDGEIT":
+                            BridgeIT bridgeMap = new BridgeIT();
+                            await Task.Run(() =>
+                            {
+                                bridgeMap.BridgeITMapper(reportProgress, openFileDialog1.FileName, masterPath, PMS, accuracy, pRef, skipcheck.Checked, logCheck.Checked, threshold, exePath, "treatment_map.csv");
+                            });
+                        break;
+                    case "ISMILE":
+                        ISMILE ismileMap = new ISMILE();
+                        await Task.Run(() =>
+                        {
+                            ismileMap.IsmileMapper(reportProgress, openFileDialog1.FileName, masterPath, PMS, accuracy, pRef, skipcheck.Checked, logCheck.Checked, threshold, exePath, "treatments.csv");
+                        });
+                        break;
+                    case "SFD":
+                        SFD sfdMap = new SFD();
+                        await Task.Run(() =>
+                        {
+                            sfdMap.SFDMapper(reportProgress, openFileDialog1.FileName, masterPath, PMS, accuracy, pRef, skipcheck.Checked, logCheck.Checked, threshold, exePath, "dentally_treatments.csv");
+                        });
+                        break;
+                }
+                
+ 
+                /*     treatmentmapper map = new treatmentmapper();
+                     await Task.Run(() =>
+                     {
+                         *//*map.Mapper(reportProgress,openFileDialog1.FileName, masterPath, PMS, accuracy, pRef,skipcheck.Checked,logCheck.Checked,threshold);*//*
 
-                await Task.Run(() =>
-                {
-                    map.mapper(reportProgress,openFileDialog1.FileName, masterPath, PMS, accuracy, pRef,skipcheck.Checked,logCheck.Checked,threshold);
-                });
+                     });*/
 
                 button1.Enabled = true;
              

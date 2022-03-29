@@ -62,9 +62,13 @@ namespace Treatment_Mapper
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Items.AddRange(new object[] {
             "R4",
-            "EXACT"});
+            "EXACT",
+            "BRIDGEIT",
+            "ISMILE",
+            "SFD"});
             this.listBox1.Location = new System.Drawing.Point(5, 64);
             this.listBox1.Name = "listBox1";
+            this.listBox1.ScrollAlwaysVisible = true;
             this.listBox1.Size = new System.Drawing.Size(191, 30);
             this.listBox1.TabIndex = 2;
             // 
@@ -152,6 +156,8 @@ namespace Treatment_Mapper
             // skipcheck
             // 
             this.skipcheck.AutoSize = true;
+            this.skipcheck.Checked = true;
+            this.skipcheck.CheckState = System.Windows.Forms.CheckState.Checked;
             this.skipcheck.Location = new System.Drawing.Point(6, 162);
             this.skipcheck.Name = "skipcheck";
             this.skipcheck.Size = new System.Drawing.Size(145, 17);
