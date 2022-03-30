@@ -79,6 +79,7 @@
     <Compile Include="CSV.cs" />
     <Compile Include="ISMILE.cs" />
     <Compile Include="Logger.cs" />
+    <Compile Include="MasterComparison.cs" />
     <Compile Include="results.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="SFD.cs" />

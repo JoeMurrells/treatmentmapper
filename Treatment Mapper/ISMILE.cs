@@ -35,15 +35,12 @@ namespace Treatment_Mapper
 
                 MASTER generateMaster = new MASTER();
                 var masterlist = generateMaster.GenerateMasterList(masterPath);
-
-                MASTER codeValidation = new MASTER();
-                var valid_codes = codeValidation.CodeValidation(masterlist);
+                var valid_codes = generateMaster.CodeValidation(masterlist);
 
                 CSV csvReader = new CSV();
                 var iSmiletreatments = csvReader.ReadIsmileCSV(readerpath);
-
-                CSV generateOutput = new CSV();
-                var outputcsv = generateOutput.GenerateOutputCSV(exePath, pRef, csvName, system);
+                var outputcsv = csvReader.GenerateOutputCSV(exePath, pRef, csvName, system);
+                MasterComparison master = new MasterComparison();
 
                 foreach (var T in iSmiletreatments)
                 {
@@ -59,61 +56,7 @@ namespace Treatment_Mapper
                     if (reportProgress != null)
                         reportProgress.Report(p);
 
-
-                    var results = new ConcurrentBag<Results>();
-
-                    Parallel.ForEach(masterlist, M =>
-                    {
-
-                        string description = T.treatment_name.ToString();
-                        description = description.ToLower();
-
-                        string nomenclature = M.nomenclature.ToString();
-                        nomenclature = nomenclature.ToLower();
-
-
-                        ThreadLocal<int> match = new ThreadLocal<int>
-                        {
-                            Value = Fuzz.WeightedRatio(description, nomenclature)
-                        };
-
-                        if (match.Value >= accuracy)
-                        {
-                            results.Add(new Results(nomenclature, match.Value, M.code));
-
-                        }
-                        match.Dispose();
-
-                    });
-                    var finalResult = (from r in results
-                                       orderby r.matchResult descending
-                                       select r.codeResult).FirstOrDefault();
-                    var finalMatch = (from r in results
-                                      orderby r.matchResult descending
-                                      select r.matchResult).FirstOrDefault();
-                    var finalDesc = (from r in results
-                                     orderby r.matchResult descending
-                                     select r.nomenResult).FirstOrDefault();
-
-                    if (finalMatch <= thresholdValue || finalResult <= 0)
-                    {
-                        string userCode = Interaction.InputBox($"Original Description : {T.treatment_name} Best match found : {finalDesc} Match : {finalMatch}, Please confirm or enter new code.", "Confirm Code", $"{finalResult}");
-
-                        int convertedCode;
-
-                        while (int.TryParse(userCode, out convertedCode) == false || valid_codes.Contains(Convert.ToInt32(userCode)) == false)
-                        {
-                            MessageBox.Show("Invalid Code Entered");
-                            userCode = Interaction.InputBox($"Original Description : {T.treatment_name} Best match found : {finalDesc} Match : {finalMatch}, Please confirm or enter new code.", "Confirm Code", $"{finalResult}");
-                        }
-
-                        T.dentally_code = convertedCode;
-                        MASTER updateMaster = new MASTER();
-                        updateMaster.UpdateMasterList(masterPath, T.treatment_name, T.dentally_code);
-                    }
-                    else { T.dentally_code = finalResult; }
-
-                    log.UpdateLog(logcheck, T.treatment_name, finalDesc, finalMatch, finalResult, exePath);
+                    T.dentally_code = master.MapFromMaster(masterlist, T.treatment_name, T.dentally_code, accuracy, thresholdValue, masterPath, valid_codes, outputcsv);
 
                     if (T.dentally_code == null)
                     {
@@ -123,7 +66,7 @@ namespace Treatment_Mapper
                     outputcsv.WriteRecord(T);
                     outputcsv.NextRecord();
                 }
-                generateOutput.WriteOutputCSV(outputcsv, iSmiletreatments);
+                csvReader.WriteOutputCSV(outputcsv, iSmiletreatments);
                 MessageBox.Show($"Finished! Unable to map {count} treatments");
             }
             catch (Exception ex)
