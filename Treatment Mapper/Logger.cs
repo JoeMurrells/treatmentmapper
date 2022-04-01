@@ -18,7 +18,6 @@ namespace Treatment_Mapper
             log.WriteLine($"{time},Master CSV = {masterPath}");
             log.WriteLine($"{time},Practice Ref = {pRef}");
             log.WriteLine($"{time},System = {system}");
-            log.WriteLine($"{time},Accuracy = {accuracy}");
             log.WriteLine($"Description, Nomenclature, Match Value, Code Used");
             log.Close();
         }

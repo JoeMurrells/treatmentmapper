@@ -22,15 +22,12 @@ namespace Treatment_Mapper
         public string Description { get; set; }
         public int? DentallyCode { get; set; }
 
-        public void R4Mapper(IProgress<int> reportProgress, string readerpath, string masterPath, string system, int accuracy, string pRef, bool skip, bool logcheck, int thresholdValue, string exePath, string csvName)
+        public void R4Mapper(IProgress<int> reportProgress, string readerpath, string masterPath, string system, int accuracy, string pRef, bool skip, bool logcheck, Logger log, int thresholdValue, string exePath, string csvName)
         {
             try
             {
                 int count = 0;
                 int p = 0;
-
-                Logger log = new Logger();
-                log.CreateLog(exePath, readerpath, masterPath, pRef, system, accuracy);
 
                 MASTER generateMaster = new MASTER();
                 var masterlist = generateMaster.GenerateMasterList(masterPath);
@@ -56,7 +53,7 @@ namespace Treatment_Mapper
                     if (reportProgress != null)
                         reportProgress.Report(p);
 
-                   T.DentallyCode = master.MapFromMaster(masterlist, T.Description, T.DentallyCode, accuracy, thresholdValue, masterPath, valid_codes, outputcsv);
+                   T.DentallyCode = master.MapFromMaster(masterlist, T.Description, T.DentallyCode, accuracy, thresholdValue, masterPath, valid_codes,exePath,logcheck,log);
 
                     if (T.DentallyCode == null)
                     {

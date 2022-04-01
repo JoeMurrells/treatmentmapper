@@ -23,15 +23,12 @@ namespace Treatment_Mapper
         public int count { get; set; }
         public int? dentally_code { get; set; }
 
-        public void IsmileMapper(IProgress<int> reportProgress, string readerpath, string masterPath, string system, int accuracy, string pRef, bool skip, bool logcheck, int thresholdValue, string exePath, string csvName)
+        public void IsmileMapper(IProgress<int> reportProgress, string readerpath, string masterPath, string system, int accuracy, string pRef, bool skip, bool logcheck, Logger log, int thresholdValue, string exePath, string csvName)
         {
             try
             {
                 int count = 0;
                 int p = 0;
-
-                Logger log = new Logger();
-                log.CreateLog(exePath, readerpath, masterPath, pRef, system, accuracy);
 
                 MASTER generateMaster = new MASTER();
                 var masterlist = generateMaster.GenerateMasterList(masterPath);
@@ -40,6 +37,7 @@ namespace Treatment_Mapper
                 CSV csvReader = new CSV();
                 var iSmiletreatments = csvReader.ReadIsmileCSV(readerpath);
                 var outputcsv = csvReader.GenerateOutputCSV(exePath, pRef, csvName, system);
+                
                 MasterComparison master = new MasterComparison();
 
                 foreach (var T in iSmiletreatments)
@@ -56,7 +54,7 @@ namespace Treatment_Mapper
                     if (reportProgress != null)
                         reportProgress.Report(p);
 
-                    T.dentally_code = master.MapFromMaster(masterlist, T.treatment_name, T.dentally_code, accuracy, thresholdValue, masterPath, valid_codes, outputcsv);
+                    T.dentally_code = master.MapFromMaster(masterlist, T.treatment_name, T.dentally_code, accuracy, thresholdValue, masterPath, valid_codes,exePath, logcheck,log);
 
                     if (T.dentally_code == null)
                     {

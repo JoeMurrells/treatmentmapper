@@ -18,8 +18,9 @@ namespace Treatment_Mapper
 {
     public class MasterComparison
     {
-        public int? MapFromMaster(List<MASTER> masterlist, Object TDesc, Object TCode, int accuracy, int thresholdValue, string masterPath, List<int> valid_codes, CsvWriter outputcsv)
+        public int? MapFromMaster(List<MASTER> masterlist, Object TDesc, Object TCode, int accuracy, int thresholdValue, string masterPath, List<int> valid_codes,string exePath,bool logcheck,Logger log)
         {
+
             var results = new ConcurrentBag<Results>();
 
             Parallel.ForEach(masterlist, M =>
@@ -60,7 +61,7 @@ namespace Treatment_Mapper
 
                 int convertedCode;
 
-                while (int.TryParse(userCode, out convertedCode) == false || valid_codes.Contains(Convert.ToInt32(userCode)) == false)
+                while (int.TryParse(userCode, out convertedCode) == false || valid_codes.Contains(Convert.ToInt16(userCode)) == false)
                 {
                     MessageBox.Show("Invalid Code Entered");
                     userCode = Interaction.InputBox($"Original Description : {TDesc} Best match found : {finalDesc} Match : {finalMatch}, Please confirm or enter new code.", "Confirm Code", $"{finalResult}");
@@ -72,10 +73,8 @@ namespace Treatment_Mapper
             }
             else { TCode = finalResult; }
 
+            log.UpdateLog(logcheck, TDesc, finalDesc, finalMatch, finalResult, exePath);
 
-            /*outputcsv.WriteField(T0);
-            outputcsv.WriteField(T1);
-            outputcsv.NextRecord();*/
             int? outputCode = Convert.ToInt16(TCode);
             return outputCode;
         }

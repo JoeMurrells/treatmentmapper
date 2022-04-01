@@ -27,14 +27,11 @@ namespace Treatment_Mapper
         public int? dentally_code { get; set; }
         public string descriptions { get; set; }
 
-        public void ExactMapper(IProgress<int> reportProgress, string readerpath, string masterPath, string system, int accuracy, string pRef, bool skip, bool logcheck, int thresholdValue, string exePath, string csvName)
+        public void ExactMapper(IProgress<int> reportProgress, string readerpath, string masterPath, string system, int accuracy, string pRef, bool skip, bool logcheck, Logger log, int thresholdValue, string exePath, string csvName)
         {
             try {
                 int count = 0;
                 int p = 0;
-
-                Logger log = new Logger();
-                log.CreateLog(exePath, readerpath, masterPath, pRef, system, accuracy);
 
                 MASTER generateMaster = new MASTER();
                 var masterlist = generateMaster.GenerateMasterList(masterPath);
@@ -52,7 +49,6 @@ namespace Treatment_Mapper
                     if (reportProgress != null)
                         reportProgress.Report(p);
                     
-
                     if (T.dentally_code >= 0 && skip == true)
                     {
                         outputcsv.WriteRecord(T);
@@ -60,7 +56,12 @@ namespace Treatment_Mapper
                         continue;
                     }
                     
-                    T.dentally_code = master.MapFromMaster(masterlist, T.exact_desc, T.dentally_code, accuracy, thresholdValue, masterPath, valid_codes, outputcsv);
+                    T.dentally_code = master.MapFromMaster(masterlist, T.exact_desc, T.dentally_code, accuracy, thresholdValue, masterPath, valid_codes, exePath, logcheck, log);
+
+                    if (T.dentally_code == null)
+                    {
+                        count += 1;
+                    }
                 }
 
                 csvReader.WriteOutputCSV(outputcsv, exactTreatments);
