@@ -62,6 +62,8 @@ namespace Treatment_Mapper
                     {
                         count += 1;
                     }
+                    outputcsv.WriteRecord(T);
+                    outputcsv.NextRecord();
                 }
 
                 csvReader.WriteOutputCSV(outputcsv, exactTreatments);
