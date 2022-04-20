@@ -75,18 +75,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BridgeIT.cs" />
-    <Compile Include="CSV.cs" />
-    <Compile Include="ISMILE.cs" />
-    <Compile Include="Logger.cs" />
-    <Compile Include="MasterComparison.cs" />
-    <Compile Include="results.cs" />
+    <Compile Include="Mapping Functions\userInput.cs" />
+    <Compile Include="Master Class\MasterFunctions.cs" />
+    <Compile Include="PMS Classes\BridgeIT.cs" />
+    <Compile Include="Support Functions\CSV.cs" />
+    <Compile Include="Mapping Functions\genericMapper.cs" />
+    <Compile Include="PMS Classes\ISMILE.cs" />
+    <Compile Include="Support Functions\Logger.cs" />
+    <Compile Include="Mapping Functions\MasterComparison.cs" />
+    <Compile Include="PMS Classes\results.cs" />
     <Compile Include="Settings.cs" />
-    <Compile Include="SFD.cs" />
-    <Compile Include="treatmentmapper.cs" />
-    <Compile Include="MASTER.cs" />
-    <Compile Include="exactTreatments.cs" />
-    <Compile Include="R4Treatments.cs" />
+    <Compile Include="PMS Classes\SFD.cs" />
+    <Compile Include="Master Class\MASTER.cs" />
+    <Compile Include="PMS Classes\exactTreatments.cs" />
+    <Compile Include="PMS Classes\R4Treatments.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,5 +123,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

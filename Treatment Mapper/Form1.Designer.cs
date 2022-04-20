@@ -185,7 +185,7 @@ namespace Treatment_Mapper
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Items.AddRange(new object[] {
             "R4",
-            "EXACT",
+            "EXACT/SOEL",
             "BRIDGEIT",
             "ISMILE",
             "SFD"});

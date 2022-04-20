@@ -19,7 +19,7 @@ namespace Treatment_Mapper
             {
                 case "R4": outputcsv.WriteHeader<R4>();
                     break;
-                case "EXACT": outputcsv.WriteHeader<EXACT>();
+                case "EXACT/SOEL": outputcsv.WriteHeader<EXACT>();
                     break;
                 case "BRIDGEIT": outputcsv.WriteHeader<BridgeIT>();
                     break;

@@ -14,6 +14,8 @@ using FuzzySharp;
 using System.IO;
 using System.Collections.Concurrent;
 using Microsoft.VisualBasic;
+using Treatment_Mapper.Mapping_Functions;
+
 namespace Treatment_Mapper
 {
     public class MasterComparison
@@ -57,19 +59,8 @@ namespace Treatment_Mapper
 
             if (finalMatch <= thresholdValue || finalResult <= 0)
             {
-                string userCode = Interaction.InputBox($"Original Description : {TDesc} Best match found : {finalDesc} Match : {finalMatch}, Please confirm or enter new code.", "Confirm Code", $"{finalResult}");
-
-                int convertedCode;
-
-                while (int.TryParse(userCode, out convertedCode) == false || valid_codes.Contains(Convert.ToInt16(userCode)) == false)
-                {
-                    MessageBox.Show("Invalid Code Entered");
-                    userCode = Interaction.InputBox($"Original Description : {TDesc} Best match found : {finalDesc} Match : {finalMatch}, Please confirm or enter new code.", "Confirm Code", $"{finalResult}");
-                }
-
-                TCode = convertedCode;
-                MASTER updateMaster = new MASTER();
-                updateMaster.UpdateMasterList(masterPath, TDesc, TCode);
+                userInput codeInput = new userInput();
+                TCode = codeInput.userCodeInput(TDesc, finalDesc, finalMatch, valid_codes, masterPath, TCode, finalResult);
             }
             else { TCode = finalResult; }
 

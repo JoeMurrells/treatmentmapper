@@ -7,14 +7,11 @@ using CsvHelper;
 using CsvHelper.Configuration;
 using System.IO;
 
-namespace Treatment_Mapper
+namespace Treatment_Mapper.Master_Class
 {
-    public class MASTER
+    public class MasterFunctions
     {
-        public int code { get; set; }
-       public string nomenclature { get; set; }
-
-        public List<MASTER> GenerateMasterList(string masterPath) 
+        public List<MASTER> GenerateMasterList(string masterPath)
         {
             var masterReader = new StreamReader(masterPath);
             var masterCSV = new CsvReader(masterReader, System.Globalization.CultureInfo.InvariantCulture);
@@ -22,7 +19,7 @@ namespace Treatment_Mapper
             var masterlist = master.ToList();
             masterReader.Close();
             return masterlist;
-            
+
         }
 
         public void UpdateMasterList(string masterPath, Object T0, Object T1)
@@ -43,7 +40,7 @@ namespace Treatment_Mapper
             }
         }
 
-        public List<int> CodeValidation (List<MASTER>masterlist)
+        public List<int> CodeValidation(List<MASTER> masterlist)
         {
             List<int> valid_codes = new List<int>();
 
