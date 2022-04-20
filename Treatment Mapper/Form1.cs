@@ -24,11 +24,10 @@ namespace Treatment_Mapper
         {
             string pRef = textBox1.Text;
             string PMS = listBox1.Text;
-            int accuracy = Convert.ToInt32(numericUpDown1.Text);
-            int threshold = Convert.ToInt32(thresholdValue.Text);
+            int accuracy = Convert.ToInt16(numericUpDown1.Text);
+            int threshold = 85; /*Convert.ToInt16(thresholdValue.Text);*/
             string masterPath;
             string exePath = Application.StartupPath;
-
 
             Directory.CreateDirectory($@"{exePath}\output\{pRef}");
 
@@ -53,7 +52,7 @@ namespace Treatment_Mapper
             else if (bupa.Checked == false && csvcheckbox.Checked == true)
             {
                 masterPath = $@"{exePath}\MasterCSV\comparisonmaster.csv";
-                accuracy = 100;
+                threshold = 95;
             }
             else if (bupa.Checked == true && csvcheckbox.Checked == true)
             {
@@ -85,6 +84,12 @@ namespace Treatment_Mapper
             };
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
+                Logger log = new Logger();
+
+                if (logCheck.Checked == true)
+                {
+                    log.CreateLog(exePath, openFileDialog1.FileName, masterPath, pRef, PMS, accuracy);
+                }
 
                 var reportProgress = new Progress<int>(processed =>
                 {
@@ -93,13 +98,45 @@ namespace Treatment_Mapper
                    button1.Enabled = false;
                 });
 
-                treatmentmapper map = new treatmentmapper();
-
-                await Task.Run(() =>
-                {
-                    map.mapper(reportProgress,openFileDialog1.FileName, masterPath, PMS, accuracy, pRef,skipcheck.Checked,logCheck.Checked,threshold);
-                });
-
+                    switch (PMS)
+                    {
+                        case "R4":
+                            R4 r4Map = new R4();
+                            await Task.Run(() =>
+                            {
+                                r4Map.R4Mapper(reportProgress, openFileDialog1.FileName, masterPath, PMS, accuracy, pRef, skipcheck.Checked, logCheck.Checked,log, threshold, exePath, "dentally_treatments.csv");
+                            });
+                        break;
+                        case "EXACT":
+                            EXACT exactMap = new EXACT();
+                            await Task.Run(() =>
+                            {
+                                exactMap.ExactMapper(reportProgress, openFileDialog1.FileName, masterPath, PMS, accuracy, pRef, skipcheck.Checked, logCheck.Checked,log, threshold, exePath, "treatment_map.csv");
+                            });
+                        break;
+                        case "BRIDGEIT":
+                            BridgeIT bridgeMap = new BridgeIT();
+                            await Task.Run(() =>
+                            {
+                                bridgeMap.BridgeITMapper(reportProgress, openFileDialog1.FileName, masterPath, PMS, accuracy, pRef, skipcheck.Checked, logCheck.Checked,log, threshold, exePath, "treatment_map.csv");
+                            });
+                        break;
+                    case "ISMILE":
+                        ISMILE ismileMap = new ISMILE();
+                        await Task.Run(() =>
+                        {
+                            ismileMap.IsmileMapper(reportProgress, openFileDialog1.FileName, masterPath, PMS, accuracy, pRef, skipcheck.Checked, logCheck.Checked,log, threshold, exePath, "treatments.csv");
+                        });
+                        break;
+                    case "SFD":
+                        SFD sfdMap = new SFD();
+                        await Task.Run(() =>
+                        {
+                            sfdMap.SFDMapper(reportProgress, openFileDialog1.FileName, masterPath, PMS, accuracy, pRef, skipcheck.Checked, logCheck.Checked,log, threshold, exePath, "dentally_treatments.csv");
+                        });
+                        break;
+                }
+                
                 button1.Enabled = true;
              
               

@@ -75,8 +75,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BridgeIT.cs" />
+    <Compile Include="CSV.cs" />
+    <Compile Include="ISMILE.cs" />
+    <Compile Include="Logger.cs" />
+    <Compile Include="MasterComparison.cs" />
     <Compile Include="results.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="SFD.cs" />
     <Compile Include="treatmentmapper.cs" />
     <Compile Include="MASTER.cs" />
     <Compile Include="exactTreatments.cs" />

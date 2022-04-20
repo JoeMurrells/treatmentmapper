@@ -17,19 +17,18 @@ using Microsoft.VisualBasic;
 
 namespace Treatment_Mapper
 {
-    public class EXACT
+    public class SFD
     {
-        public string soe_code { get; set; }
-        public string service { get; set; }
-        public string ada_code { get; set; }
-        public int? occurrence { get; set; }
-        public string exact_desc { get; set; }
+        public int treatment_id { get; set; }
+        public int code { get; set; }
+        public string nomenclature { get; set; }
+        public int count { get; set; }
         public int? dentally_code { get; set; }
-        public string descriptions { get; set; }
 
-        public void ExactMapper(IProgress<int> reportProgress, string readerpath, string masterPath, string system, int accuracy, string pRef, bool skip, bool logcheck, Logger log, int thresholdValue, string exePath, string csvName)
+        public void SFDMapper(IProgress<int> reportProgress, string readerpath, string masterPath, string system, int accuracy, string pRef, bool skip, bool logcheck, Logger log, int thresholdValue, string exePath, string csvName)
         {
-            try {
+            try
+            {
                 int count = 0;
                 int p = 0;
 
@@ -38,35 +37,36 @@ namespace Treatment_Mapper
                 var valid_codes = generateMaster.CodeValidation(masterlist);
 
                 CSV csvReader = new CSV();
-                var exactTreatments = csvReader.ReadExactCSV(readerpath);
+                var sfdtreatments = csvReader.ReadSFDCSV(readerpath);
                 var outputcsv = csvReader.GenerateOutputCSV(exePath, pRef, csvName, system);
 
                 MasterComparison master = new MasterComparison();
 
-                foreach (var T in exactTreatments)
+                foreach (var T in sfdtreatments)
                 {
-                    p += 1;
-                    if (reportProgress != null)
-                        reportProgress.Report(p);
-                    
                     if (T.dentally_code >= 0 && skip == true)
                     {
                         outputcsv.WriteRecord(T);
                         outputcsv.NextRecord();
                         continue;
                     }
-                    
-                    T.dentally_code = master.MapFromMaster(masterlist, T.exact_desc, T.dentally_code, accuracy, thresholdValue, masterPath, valid_codes, exePath, logcheck, log);
+
+                    p += 1;
+
+                    if (reportProgress != null)
+                        reportProgress.Report(p);
+
+                    T.dentally_code = master.MapFromMaster(masterlist, T.nomenclature, T.dentally_code, accuracy, thresholdValue, masterPath, valid_codes, exePath, logcheck,log);
 
                     if (T.dentally_code == null)
                     {
                         count += 1;
                     }
+
                     outputcsv.WriteRecord(T);
                     outputcsv.NextRecord();
                 }
-
-                csvReader.WriteOutputCSV(outputcsv, exactTreatments);
+                csvReader.WriteOutputCSV(outputcsv, sfdtreatments);
                 MessageBox.Show($"Finished! Unable to map {count} treatments");
             }
             catch (Exception ex)
@@ -74,4 +74,6 @@ namespace Treatment_Mapper
                 MessageBox.Show(ex.Message);
             }
         }
-    } }
+
+    }
+}

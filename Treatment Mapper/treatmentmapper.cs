@@ -21,67 +21,58 @@ namespace Treatment_Mapper
     {
         
 
-        public void mapper(IProgress<int> reportProgress,string readerpath, string masterPath, string system, int accuracy, string pRef, bool skip,bool logcheck, int thresholdValue) 
+        public void Mapper(IProgress<int> reportProgress,string readerpath, string masterPath, string system, int accuracy, string pRef, bool skip,bool logcheck, int thresholdValue) 
         {
             try 
             {
                 string exePath = Application.StartupPath;
                 int progress = 0;
 
-                var masterReader = new StreamReader(masterPath);
-                var masterCSV = new CsvReader(masterReader, System.Globalization.CultureInfo.InvariantCulture);
-                var master = masterCSV.GetRecords<MASTER>();
-                var masterlist = master.ToList();
-                masterReader.Close();
-                
-                var reader = new StreamReader(readerpath);
-                var r4csv = new CsvReader(reader, System.Globalization.CultureInfo.InvariantCulture);
-                var exactcsv = new CsvReader(reader, System.Globalization.CultureInfo.InvariantCulture);
-               
+                Logger log = new Logger();
+                log.CreateLog(exePath, readerpath, masterPath, pRef, system, accuracy);
 
-                var r4treatments = r4csv.GetRecords<R4>();
-                var exacttreatments = exactcsv.GetRecords<EXACT>();
-                
+                MASTER bigmaster = new MASTER();
+                var masterlist = bigmaster.GenerateMasterList(masterPath);
+
+                MASTER codeValidation = new MASTER();
+                var valid_codes = codeValidation.CodeValidation(masterlist);
+
+                CSV csvReader = new CSV();
+
+                /*var reader = new StreamReader(readerpath);
+                var r4csv = new CsvReader(reader, System.Globalization.CultureInfo.InvariantCulture);
+                var exactcsv = new CsvReader(reader, System.Globalization.CultureInfo.InvariantCulture);*/
+
+
+                var r4treatments = csvReader.ReadR4CSV(readerpath);
+                var exacttreatments = csvReader.ReadExactCSV(readerpath);
 
                 string csvName = null;
 
-                List<int> valid_codes = new List<int>();
-
-                foreach (var T in masterlist)
-                {
-                    valid_codes.Add(T.code);
-                }
-
                 if (system == "R4")
                 {
+
                     csvName = "dentally_treatments.csv";
                 }
                 else if (system == "EXACT")
                 {
+
                     csvName = "treatment_map.csv";
                 }
 
                 var writer = new StreamWriter($@"{exePath}\output\{pRef}\{csvName}");
                 var outputcsv = new CsvWriter(writer, System.Globalization.CultureInfo.InvariantCulture);
+
                 
-                var log = new StreamWriter($@"{exePath}\log.txt", append: true);
-                DateTime time = DateTime.Now;
-                log.WriteLine($"{time},Source CSV = {readerpath}");
-                log.WriteLine($"{time},Master CSV = {masterPath}");
-                log.WriteLine($"{time},Practice Ref = {pRef}");
-                log.WriteLine($"{time},System = {system}");
-                log.WriteLine($"{time},Accuracy = {accuracy}");
-                log.WriteLine($"Description, Nomenclature, Match Value, Code Used");
+                
                 int count = 0;
 
                 if (system == "R4") 
-                {
-                    var r4list = r4treatments.ToList();
+                {;
                     outputcsv.WriteHeader<R4>();
                     outputcsv.NextRecord();
                     int p = 0;
-                    var inputlist = r4list;
-                    foreach (var T in r4list)
+                    foreach (var T in r4treatments)
                     {
                         if (T.DentallyCode >=0 && skip == true)
                         {
@@ -107,11 +98,13 @@ namespace Treatment_Mapper
                             string nomenclature = M.nomenclature.ToString();
                             nomenclature = nomenclature.ToLower();
 
-                         
-                            ThreadLocal<int> match = new ThreadLocal<int>();
-                            match.Value = Fuzz.WeightedRatio(description, nomenclature);
 
-                           
+                            ThreadLocal<int> match = new ThreadLocal<int>
+                            {
+                                Value = Fuzz.WeightedRatio(description, nomenclature)
+                            };
+
+
 
                             if (match.Value >= accuracy)
                             {
@@ -143,29 +136,13 @@ namespace Treatment_Mapper
                                 userCode = Interaction.InputBox($"Original Description : {T.Description} Best match found : {finalDesc} Match : {finalMatch}, Please confirm or enter new code.", "Confirm Code", $"{finalResult}");
                             }
 
-                            //int finaluserCode = Convert.ToInt32(userCode);
                             T.DentallyCode = convertedCode;
-
-                            var config = new CsvConfiguration(System.Globalization.CultureInfo.InvariantCulture)
-                            {
-                                
-                                HasHeaderRecord = false,
-                            };
-                            using (var stream = File.Open($"{masterPath}", FileMode.Append))
-                            using (var masterUpdate = new StreamWriter(stream))
-                            using (var mastercsvUpdate = new CsvWriter(masterUpdate, config))
-                            {
-                                mastercsvUpdate.WriteRecord(T);
-                                mastercsvUpdate.NextRecord();
-                            }
+                            MASTER updateMaster = new MASTER();
+                            updateMaster.UpdateMasterList(masterPath, T.Description, T.DentallyCode);
                         }
                         else { T.DentallyCode = finalResult; }
 
-
-                        if (logcheck == true)
-                        {
-                            foreach (var R in results) { log.WriteLine($"{T.Description},{R.nomenResult},{R.matchResult},{R.codeResult}"); }
-                        }
+                        log.UpdateLog(logcheck,T.Description,finalDesc,finalMatch,finalResult,exePath);
 
                         if (T.DentallyCode == null)
                         {
@@ -179,7 +156,6 @@ namespace Treatment_Mapper
 
                     outputcsv.WriteRecords(r4treatments);
                     writer.Flush();
-                    log.Close();
                     writer.Close();
                     MessageBox.Show($"Finished! Unable to map {count} treatments");
                 }
@@ -268,10 +244,10 @@ namespace Treatment_Mapper
                         else { T.dentally_code = finalResult; }
 
 
-                        if (logcheck == true) 
+                      /*  if (logcheck == true) 
                         {
                             foreach (var R in results) { log.WriteLine($"{T.exact_desc},{R.nomenResult},{R.matchResult},{R.codeResult}"); }
-                        }
+                        }*/
 
                         if (T.dentally_code == null)
                         {
@@ -285,7 +261,7 @@ namespace Treatment_Mapper
                     outputcsv.WriteRecords(exacttreatments);
                     writer.Flush();
                     writer.Close();
-                    log.Close();
+                    /*log.Close();*/
                     MessageBox.Show($"Finished! Unable to map {count} treatments");
 
                 }
