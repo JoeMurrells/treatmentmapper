@@ -9,9 +9,9 @@ using System.IO;
 
 namespace Treatment_Mapper.Master_Class
 {
-    public class MasterFunctions
+    public static class MasterFunctions
     {
-        public List<MASTER> GenerateMasterList(string masterPath)
+        public static List<MASTER> GenerateMasterList(string masterPath)
         {
             var masterReader = new StreamReader(masterPath);
             var masterCSV = new CsvReader(masterReader, System.Globalization.CultureInfo.InvariantCulture);
@@ -22,7 +22,7 @@ namespace Treatment_Mapper.Master_Class
 
         }
 
-        public void UpdateMasterList(string masterPath, Object T0, Object T1)
+        public static void UpdateMasterList(string masterPath, Object T0, Object T1)
         {
             var config = new CsvConfiguration(System.Globalization.CultureInfo.InvariantCulture)
             {
@@ -40,15 +40,5 @@ namespace Treatment_Mapper.Master_Class
             }
         }
 
-        public List<int> CodeValidation(List<MASTER> masterlist)
-        {
-            List<int> valid_codes = new List<int>();
-
-            foreach (var T in masterlist)
-            {
-                valid_codes.Add(T.code);
-            }
-            return valid_codes;
-        }
     }
 }

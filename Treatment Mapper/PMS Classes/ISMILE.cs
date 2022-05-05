@@ -19,7 +19,7 @@ namespace Treatment_Mapper
 {
     public class ISMILE
     {
-        public string treatment_name { get; set; }
+        public string nomenclature { get; set; }
         public int count { get; set; }
         public int? dentally_code { get; set; }
 

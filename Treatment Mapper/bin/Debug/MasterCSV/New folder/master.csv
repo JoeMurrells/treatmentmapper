@@ -1,0 +1,231 @@
+active,appear_on_invoice,code,description,icon_colour,icon_shape,icon_text,is_filled,is_missing,keyboard_shortcut,nhs_treatment_cat,nomenclature,notes,patient_nomenclature,patient_description,region,reset_tooth,treatment_category_name,uda_band,base_chart,duration
+TRUE,TRUE,100,"An evaluation performed on a patient of record to determine any changes in the patient's dental and medical health status since a previous comprehensive or periodic evaluation.  This includes an oral cancer evaluation and periodontal screening where indicated, and may require interpretation of information acquired through additional diagnostic procedures.  Report additional diagnostic procedures separately.",,,,FALSE,FALSE,,9317,Exam,,Examination,,patient,FALSE,Diagnostic Related Services,1,FALSE,0
+TRUE,TRUE,101,,,,,FALSE,FALSE,,9317,Exam & Scale & Polish ,,Examination and Scale and Polish with the Dentist,,patient,FALSE,Diagnostic Related Services,1,FALSE,0
+TRUE,TRUE,102,"Used by a general dentist and/or a specialist when evaluating a patient comprehensively.  This applies to new patients; established patients who have had a significant change in health conditions or other unusual circumstances, by report, or established patients who have been absent from active treatment for three or more years.  It is a thorough evaluation and recording of the extraoral and intraoral hard and soft tissues.  It may require interpretation of information acquired through additional diagnostic procedures.  Additional diagnostic procedures should be reported separately.  This includes an evaluation for oral cancer where indicated, the evaluation and recording of the patient's dental and medical history and a general health assessment. It may include the evaluation and recording of dental caries, missing or unerupted teeth, restorations, existing prostheses, occlusal relationships, periodontal conditions (including periodontal screening and/or charting), hard and soft tissue anomalies, etc.",,,,FALSE,FALSE,,9317,New Patient Exam,,New Patient Examination,,patient,FALSE,Diagnostic Related Services,1,FALSE,0
+TRUE,TRUE,103,,,,,FALSE,FALSE,,,Review,,Review Appointment,,patient,FALSE,Diagnostic Related Services,0,FALSE,0
+TRUE,TRUE,104,"An evaluation limited to a specific oral health problem or complaint.  This may require interpretation of information acquired through additional diagnostic procedures.  Report additional diagnostic procedures separately.  Definitive procedures may be required on the same date as the evaluation.  Typically, patients receiving this type of evaluation present with a specific problem and/or dental emergencies, trauma, acute infections, etc.",,,,FALSE,FALSE,,9399,Assessment & Advice,,Emergency Assessment and Advice,,patient,FALSE,Diagnostic Related Services,4,FALSE,0
+TRUE,TRUE,105,X-ray(s) to show crowns and bone levels of upper and lower posterior teeth,,,,FALSE,FALSE,,9304,Small Radiograph,,Small Radiograph,,patient,FALSE,Diagnostic Related Services,1,FALSE,0
+TRUE,TRUE,106,Occlusal radiograph,,,,FALSE,FALSE,,9304,Intraoral Photographs,,Intraoral Photographs,,patient,FALSE,Diagnostic Related Services,1,FALSE,0
+TRUE,TRUE,107,Large Panoral radiograph to show entire dentition and tooth supporting areas,,,,FALSE,FALSE,,9304,Panoral Radiograph,,Panoral X-ray,,patient,FALSE,Diagnostic Related Services,1,FALSE,0
+TRUE,TRUE,108,Lateral radiographic image to show position and angle of teeth in relation to the skull,,,,FALSE,FALSE,,9304,Cephalometric Radiographic Image,,Lateral Ceph X-Ray,,patient,FALSE,Diagnostic Related Services,1,FALSE,0
+TRUE,TRUE,109,,,,,FALSE,FALSE,,9399,Clinical Photographs,,Clinical Photographs,,patient,FALSE,Diagnostic Related Services,1,FALSE,0
+TRUE,TRUE,110,,,,,FALSE,FALSE,,9304,Periapical X Ray,,Periapical X Ray,,patient,FALSE,Diagnostic Related Services,1,FALSE,0
+TRUE,TRUE,111,,,,,FALSE,FALSE,,9399,Acute Mucosal Infection,,Urgent/Emergency Assessment,,patient,FALSE,Diagnostic Related Services,4,FALSE,0
+TRUE,TRUE,112,Chemical or biological analysis of saliva sample for diagnostic purposes.,,,,FALSE,FALSE,,9399,Analysis Of Saliva Sample,,Saliva Testing,,patient,FALSE,Diagnostic Related Services,1,FALSE,0
+TRUE,TRUE,113,,,,,FALSE,FALSE,,9319,Band 1 Referral for Advanced Mandatory Treatment,,NHS Referral,,patient,FALSE,Diagnostic Related Services,1,FALSE,0
+TRUE,TRUE,114,,,,,FALSE,FALSE,,9319,Band 2 Referral for Advanced Mandatory Treatment,,NHS Referral,,patient,FALSE,Diagnostic Related Services,2,FALSE,0
+TRUE,TRUE,115,,,,,FALSE,FALSE,,9319,Band 3 Referral for Advanced Mandatory Treatment,,NHS Referral,,patient,FALSE,Diagnostic Related Services,3,FALSE,0
+TRUE,TRUE,116,,,,,FALSE,FALSE,,,Diagnostic Wax Up,,Diagnostic Wax Up,,tooth,FALSE,Diagnostic Related Services,0,FALSE,0
+TRUE,TRUE,117,,,,,FALSE,FALSE,,9399,Dry Socket,,Dry Socket,,patient,FALSE,Diagnostic Related Services,1,FALSE,0
+TRUE,TRUE,118,Also known as diagnostic models or study models.,,,,FALSE,FALSE,,9399,Study Models,,Study Models,,patient,FALSE,Diagnostic Related Services,1,FALSE,0
+TRUE,TRUE,119,,,,,FALSE,FALSE,,9399,Treatment of Infected Sockets,,Treatment of Infected Sockets,,patient,FALSE,Diagnostic Related Services,1,FALSE,0
+TRUE,TRUE,120,,,,,FALSE,FALSE,,9399,Incising an Abscess,,Incising an Abscess,,patient,FALSE,Diagnostic Related Services,4,FALSE,0
+TRUE,TRUE,200,"Removal of plaque, calculus and stains from the tooth structures in the permanent and transitional dentition.  It is intended to control local irritational factors. ",,,,FALSE,FALSE,,9301,Scale & Polish,,Scale & Polish,,patient,FALSE,Periodontic Related Services,1,FALSE,0
+TRUE,TRUE,201,"This procedure involves instrumentation of the crown and root surfaces of the teeth to remove plaque and calculus from these surfaces. It is indicated for patients with periodontal disease and is therapeutic, not prophylactic, in nature. Root planing is the definitive procedure designed for the removal of cementum and dentin that is rough, and/or permeated by calculus or contaminated with toxins or microorganisms. Some soft tissue removal occurs. This procedure may be used as a definitive treatment in some stages of periodontal disease and/or as a part of pre-surgical procedures in others.",,,,FALSE,FALSE,,9399,Periodontal Scaling And Root Planing,,Periodontal Scaling,,item,FALSE,Periodontic Related Services,2,FALSE,0
+TRUE,TRUE,202,"For the intentional removal, inspection and treatment of the root and replacement of a tooth into its own socket. This does not include necessary retrograde filling material placement.",,,,FALSE,FALSE,,9399,Hygiene 20,,20 Minute Hygienist Visit,,patient,FALSE,Periodontic Related Services,,FALSE,0
+TRUE,TRUE,203,,,,,FALSE,FALSE,,9399,Hygiene 30,,30 Minute Hygienist Visit,,patient,FALSE,Periodontic Related Services,,FALSE,0
+TRUE,TRUE,204,,,,,FALSE,FALSE,,,Hygiene 45,,45 Minute Hygienist Visit,,patient,FALSE,Periodontic Related Services,,FALSE,0
+TRUE,TRUE,205,,,,,FALSE,FALSE,,9399,Hygiene 60,,60 Minute Hygienist Visit,,patient,FALSE,Periodontic Related Services,,FALSE,0
+TRUE,TRUE,206,The gross removal of plaque and calculus that interfere with the ability of the dentist to perform a comprehensive oral evaluation.  This preliminary procedure does not preclude the need for additional procedures.,,,,TRUE,TRUE,,9399,Full Mouth Debridement,,Full Mouth Debridement,,item,FALSE,Periodontic Related Services,2,FALSE,0
+TRUE,TRUE,207,,,,,FALSE,FALSE,,9399,Tooth Dressing,,Dressing,,toothCoordinate,FALSE,Periodontic Related Services,4,FALSE,0
+TRUE,TRUE,208,,,,,FALSE,FALSE,,9399,Crown Lengthening,,Crown Lengthening,,toothCoordinate,FALSE,Periodontic Related Services,2,FALSE,0
+TRUE,TRUE,209,,,,,FALSE,FALSE,,,Airflow,,Airflow,,patient,FALSE,Periodontic Related Services,,FALSE,0
+TRUE,TRUE,210,"This procedure involves the use of osseous autografts, osseous allografts, or non-osseous grafts to stimulate periodontal regeneration when the disease process has led to a deformity of the bone.  This procedure does not include flap entry and closure, wound debridement, osseous contouring, or the placement of biologic materials to aid in osseous tissue regeneration or barrier membranes.  Other separate procedures may be required concurrent to D4263 and should be reported using their own unique codes.",,,,FALSE,FALSE,,,Bone Grafting,,Bone Grafting,,patient,FALSE,Periodontic Related Services,0,FALSE,0
+TRUE,TRUE,211,"This procedure does not include flap entry and closure, or, when indicated, wound debridement, osseous contouring, bone replacement grafts, and placement of biologic materials to aid in osseous regeneration. This procedure can be used for periodontal and peri-implant defects.",,,,FALSE,FALSE,,,Guided Tissue Regeneration,,Bone Grafting,,site,FALSE,Periodontic Related Services,,FALSE,0
+TRUE,TRUE,212,"This procedure is performed to create or augment gingiva, to obtain root coverage to eliminate sensitivity and to prevent root caries, to eliminate frenum pull, to extend the vestibular fornix, to augment collapsed ridges, to provide an adequate gingival interface with a restoration or to cover bone or ridge regeneration sites when adequate gingival tissues are not available for effective closure.  There are two surgical sites.  The recipient site utilizes a split thickness incision, retaining the overlying flap of gingiva and/or mucosa.  The connective tissue is dissected from the donor site leaving an epithelialized flap for closure.  After the graft is placed on the recipient site, it is covered with the retained overlying flap. ",,,,FALSE,FALSE,,,Subepithelial Connective Tissue Graft,,Tissue Grafting,,site,FALSE,Periodontic Related Services,0,FALSE,0
+TRUE,TRUE,213,This is an interim stabilization of mobile teeth.  A variety of methods and appliances may be employed for this purpose.  Identify the teeth involved.,,,,FALSE,FALSE,,9399,Splints,,Splinting,,item,FALSE,Periodontic Related Services,2,FALSE,0
+TRUE,TRUE,214,"This procedure is instituted following periodontal therapy and continues at varying intervals, determined by the clinical evaluation of the dentist, for the life of the dentition or any implant replacements. It includes removal of the bacterial plaque and calculus from supragingival and subgingival regions, site specific scaling and root planing where indicated, and polishing the teeth. If new or recurring periodontal disease appears, additional diagnostic and treatment procedures must be considered.",,,,FALSE,FALSE,,9301,Periodontal Maintenance ,,Periodontal Maintenance ,,patient,FALSE,Periodontic Related Services,,FALSE,0
+TRUE,TRUE,215,,,,,FALSE,FALSE,,9301,Hygiene Treatment,,Hygiene Treatment,,patient,FALSE,Periodontic Related Services,1,FALSE,0
+TRUE,TRUE,216,,,,,FALSE,FALSE,,9399,Perio-Chip,,Perio-Chip,,patient,FALSE,Periodontic Related Services,1,FALSE,0
+TRUE,TRUE,300,Preventive fluoride varnish application to make teeth more resistant to decay,,,,FALSE,FALSE,,9302,Topical Application Of Fluoride Varnish,,Fluoride Varnish,,tooth,FALSE,Preventive Related Services,1,FALSE,0
+TRUE,TRUE,301,Mechanically and/or chemically prepared enamel surface sealed to prevent decay.,#FFBAD2,squareSmall,FS,TRUE,FALSE,,9303,Fissure Sealant - Per Tooth,,Fissure Sealant,,surface,FALSE,Preventive Related Services,1,TRUE,0
+TRUE,TRUE,400,Silver Amalgam Restoration to include all preparation and bonding,#999999,surface,,TRUE,FALSE,,9306,Amalgam Filling,,Silver Amalgam Metallic Filling,,surface,FALSE,Surface Related Servces,2,TRUE,0
+TRUE,TRUE,401,Resin Based Composite/Compomer restoration to include all preparation & bonding,#FFDE00,surface,,TRUE,FALSE,,9306,Composite Filling,,Tooth Coloured Composite Filling,,surface,FALSE,Surface Related Servces,2,TRUE,0
+TRUE,TRUE,402,,#c9cff2,,,FALSE,FALSE,,9399,Temporary Filling,,Temporary Filling,,surface,FALSE,Surface Related Servces,4,FALSE,0
+TRUE,TRUE,403,,#61B329,surface,,TRUE,FALSE,,9306,Glass Ionomer,,Glass Ionomer - Tooth Coloured Restoration,,surface,FALSE,Surface Related Servces,2,TRUE,0
+TRUE,TRUE,404,,#ffbad2,surface,,TRUE,FALSE,,9306,Fissure Sealant - Composite,,Tooth Coloured Fissure Sealant with Composite Resin,,surface,FALSE,Surface Related Servces,2,FALSE,0
+TRUE,TRUE,405,,#ffbad2,surface,,TRUE,FALSE,,9306,Fissure Sealant - Glass Ionomer,,Tooth Coloured Fissure Sealant with Glass Ionomer,,surface,FALSE,Surface Related Servces,2,FALSE,0
+TRUE,TRUE,406,,#ffbad2,squareSmall,,TRUE,FALSE,,9306,Fissure Sealant - Composite & Glass Ionomer,,Tooth Coloured Fissure Sealant with Composite and Glass Ionomer,,surface,FALSE,Surface Related Servces,2,FALSE,0
+TRUE,TRUE,407,,,,,TRUE,FALSE,,9399,Inlay Imps & Prep,,Inlay/Onlay Impressions Preparation,,patient,FALSE,Crowns And Inlays Related Services,3,FALSE,0
+TRUE,TRUE,408,,#edac13,surface,,TRUE,FALSE,,9314,Inlay/Onlay - Gold,,Gold Filling,,surface,FALSE,Crowns And Inlays Related Services,3,FALSE,0
+TRUE,TRUE,409,,#FFFFCC,surface,,TRUE,FALSE,,9314,Inlay/Onlay - Porcelain/Ceramic,,Ceramic Filling,,surface,FALSE,Crowns And Inlays Related Services,3,TRUE,0
+TRUE,TRUE,410,,#ffde00,surface,,TRUE,FALSE,,9314,Inlay/Onlay,,Inlay,,surface,FALSE,Crowns And Inlays Related Services,3,FALSE,0
+TRUE,TRUE,411,,,,,TRUE,FALSE,,9399,Recement Inlay/Onlay,,Recement Inlay/Onlay,,tooth,FALSE,Crowns And Inlays Related Services,4,FALSE,0
+TRUE,TRUE,412,,,,,FALSE,FALSE,,9399,Veneer Imps,,Veneer Preparation & Impression,,patient,FALSE,Surface Related Servces,0,FALSE,0
+TRUE,TRUE,413,Refers also to facial veneers that extend interproximally and/or cover the incisal edge.   Porcelain/ceramic veneers presently include all ceramic and porcelain veneers. ,#ffffcc,surface,V,TRUE,FALSE,,9313,Porcelain Veneer,,Porcelain Veneer,,surface,FALSE,Surface Related Servces,3,TRUE,0
+TRUE,TRUE,414,,,,,TRUE,FALSE,,9399,Crown Imps & Prep,,Crown Impressions and Preparation,,patient,FALSE,Crowns And Inlays Related Services,3,FALSE,0
+TRUE,TRUE,415,,#ffde00,circleLarge,,FALSE,FALSE,,9308,Crown ,,Crown,,tooth,FALSE,Crowns And Inlays Related Services,3,FALSE,0
+TRUE,TRUE,416,,#ffffcc,circleLarge,,TRUE,FALSE,,9308,Porcelain Crown,,Porcelain Crown Fit,,tooth,FALSE,Crowns And Inlays Related Services,3,TRUE,0
+TRUE,TRUE,417,,#e0c28d,circleLarge,,TRUE,FALSE,,9308,Porcelain Bonded Crown,,Porcelain Bonded Crown Fit,,tooth,FALSE,Crowns And Inlays Related Services,3,TRUE,0
+TRUE,TRUE,418,,#bfaf93,circleLarge,,TRUE,FALSE,,9308,Bonded Crown,,Bonded Crown Fit,,tooth,FALSE,Crowns And Inlays Related Services,3,TRUE,0
+TRUE,TRUE,419,,#edac13,circleLarge,,TRUE,FALSE,,9308,Gold Crown,,Gold Crown Fit,,tooth,FALSE,Crowns And Inlays Related Services,3,TRUE,0
+TRUE,TRUE,420,,#CCCCCC,circleLarge,,TRUE,FALSE,,9308,Metal Crown,,Metal Crown Fit,,tooth,FALSE,Crowns And Inlays Related Services,3,TRUE,0
+TRUE,TRUE,421,Not to be used as a temporary crown for a routine prosthetic restoration.,#c9cff2,circleLarge,,TRUE,FALSE,,9399,Temporary Crown,,Temporary Crown,,tooth,FALSE,Crowns And Inlays Related Services,2,FALSE,0
+TRUE,TRUE,422,,,,,TRUE,FALSE,,9399,Recement Crown,,Recement Crown,,tooth,FALSE,Crowns And Inlays Related Services,4,FALSE,0
+TRUE,TRUE,423,Post and core are custom fabricated as a single unit.,#000000,post,,TRUE,FALSE,,9399,Post & Core,,Post Fit,,toothCoordinate,FALSE,Crowns And Inlays Related Services,3,TRUE,0
+TRUE,TRUE,424,,,,,TRUE,FALSE,,9399,Recement Post,,Recement Post,,tooth,FALSE,Crowns And Inlays Related Services,4,FALSE,0
+TRUE,TRUE,425,"Refers to building up of anatomical crown when restorative crown will be placed, whether or not pins are used.  A material is placed in the tooth preparation for a crown when there is insufficient tooth strength and retention for the crown procedure.  This should not be reported when the procedure only involves a filler to eliminate any undercut, box form, or concave irregularity in the preparation.",,,,TRUE,FALSE,,9399,"Core Buildup, Including Any Pins",,Core Build Up,,tooth,FALSE,Crowns And Inlays Related Services,2,FALSE,0
+TRUE,TRUE,426,,#000000,squareTiny,,TRUE,FALSE,,9399,Pin Retention,,Pin or Retention Groove,,toothCoordinate,FALSE,Crowns And Inlays Related Services,2,TRUE,0
+TRUE,TRUE,427,,,,,TRUE,FALSE,,9399,Post Removal ,,Post Removal ,,tooth,FALSE,Crowns And Inlays Related Services,2,FALSE,0
+TRUE,TRUE,428,"A thin covering of the remaining portion of a tooth, usually fabricated of metal and devoid of anatomic contour.  This is to be used as a definitive restoration.",#CCCCCC,squareSmall,,TRUE,FALSE,,9308,Coping,,Coping,,tooth,FALSE,Crowns And Inlays Related Services,3,FALSE,0
+TRUE,TRUE,429,,#0af3ff,circleLarge,Emax,FALSE,FALSE,,,Emax Crown,,Emax Crown,,tooth,FALSE,Crowns And Inlays Related Services,,FALSE,0
+TRUE,TRUE,430,,#ffae0d,circleLarge,Zirconium,FALSE,FALSE,,,Zirconium Crown,,Zirconium Crown,,tooth,FALSE,Crowns And Inlays Related Services,,FALSE,0
+TRUE,TRUE,431,,#2fbdb3,,,FALSE,FALSE,,9313,Veneer,,Veneer,,surface,FALSE,Surface Related Servces,3,TRUE,0
+TRUE,TRUE,432,,,,,FALSE,FALSE,,9399,Crown Repair,,Crown Repair,,toothCoordinate,FALSE,Crowns And Inlays Related Services,1,FALSE,0
+TRUE,TRUE,500,,#000000,text,RCT,FALSE,FALSE,,9305,RCT - Molar,,Root Canal Treatment - Molar Tooth,,toothCoordinate,FALSE,Endodontic Related Services,2,TRUE,0
+TRUE,TRUE,501,,#000000,text,RCT,FALSE,FALSE,,9305,RCT - Premolar Tooth,,Root Canal Treatment - Premolar Tooth,,toothCoordinate,FALSE,Endodontic Related Services,2,TRUE,0
+TRUE,TRUE,502,,#000000,text,RCT,FALSE,FALSE,,9305,RCT - Incisor,,Root Canal Treatment - Incisor Tooth,,toothCoordinate,FALSE,Endodontic Related Services,2,TRUE,0
+TRUE,TRUE,503,,,,,FALSE,FALSE,,,RCT additional visit,,Root Canal Treatment - Additional Visit,,patient,FALSE,Endodontic Related Services,0,FALSE,0
+TRUE,TRUE,504,,,,,FALSE,FALSE,,9305,Re-RCT,,Re-Root Canal Treatment,,tooth,FALSE,Endodontic Related Services,2,FALSE,0
+TRUE,TRUE,505,Primary incisors and cuspids.,#000000,,,FALSE,FALSE,,9305,Pulpal Therapy ,,Pulp Therapy,,toothCoordinate,FALSE,Endodontic Related Services,2,FALSE,0
+TRUE,TRUE,506,"Pulpotomy is the surgical removal of a portion of the pulp with the aim of maintaining the vitality of the remaining portion by means of an adequate dressing.
+To be performed on primary or permanent teeth.
+This is not to be construed as the first stage of root canal therapy.
+Not to be used for apexogenesis.",#000000,,pulpot,FALSE,FALSE,,9305,Pulpotomy (Excluding Final Restoration) ,,Pulpotomy,,toothCoordinate,FALSE,Endodontic Related Services,2,FALSE,0
+TRUE,TRUE,600,"Includes routine removal of tooth structure, minor smoothing of socket bone, and closure, as necessary.",#000000,extracted,,FALSE,TRUE,,9307,Extraction,,Extraction,,tooth,TRUE,Oral & Maxillofacial Surgery Related Services,2,FALSE,0
+TRUE,TRUE,601,"Includes related cutting of gingiva and bone, removal of tooth structure, minor smoothing of socket bone and closure.",#000000,extracted,,FALSE,TRUE,,9307,Surgical/Wisdom Tooth Extraction,,Surgical/Wisdom Tooth Extraction,,tooth,TRUE,Oral & Maxillofacial Surgery Related Services,2,FALSE,0
+TRUE,TRUE,602,,,,,FALSE,FALSE,,,Suture Removal,,Suture Removal,,item,FALSE,Oral & Maxillofacial Surgery Related Services,0,FALSE,0
+TRUE,TRUE,603,Occlusal surface of tooth covered by soft tissue; requires mucoperiosteal flap elevation.,#000000,extracted,,FALSE,TRUE,,9307,Removal Of Impacted Tooth - Soft Tissue,,Extraction Soft Tissue,,tooth,FALSE,Oral & Maxillofacial Surgery Related Services,2,FALSE,0
+TRUE,TRUE,604,Part of crown covered by bone; requires mucoperiosteal flap elevation and bone removal.,#000000,extracted,,FALSE,TRUE,,9307,Removal Of Impacted Tooth - Partially Bony,,Extraction Bone Removal,,tooth,FALSE,Oral & Maxillofacial Surgery Related Services,2,FALSE,0
+TRUE,TRUE,605,Intentional partial tooth removal is performed when a neurovascular complication is likely if the entire impacted tooth is removed.,#000000,extracted,,FALSE,TRUE,,9307,Coronectomy - Intentional Partial Tooth Removal,,Coronectomy,,tooth,FALSE,Oral & Maxillofacial Surgery Related Services,2,FALSE,0
+TRUE,TRUE,606,For removal of specimen only. This code involves biopsy of osseous lesions and is not used for apicoectomy/periradicular surgery.,,,,FALSE,FALSE,,9399,"Biopsy Of Oral Tissue - Hard (Bone, Tooth)",,Biopsy,,site,FALSE,Oral & Maxillofacial Surgery Related Services,1,FALSE,0
+TRUE,TRUE,607,For surgery on root of anterior tooth.  Does not include placement of retrograde filling material.,#000000,,RT,FALSE,FALSE,,9305,Apicectomy/Periradicular Surgery,,Apicectomy,,toothCoordinate,FALSE,Oral & Maxillofacial Surgery Related Services,2,FALSE,0
+TRUE,TRUE,700,,,,,FALSE,TRUE,,9399,Primary Denture Impressions,,Primary Denture Impressions,,item,FALSE,Dentures Related Services,3,FALSE,0
+TRUE,TRUE,701,,,,,FALSE,TRUE,,9399,Secondary Denture Impressions,,Secondary Denture Impressions,,item,FALSE,Dentures Related Services,3,FALSE,0
+TRUE,TRUE,702,,,,,FALSE,TRUE,,9399,Denture Bite,,Denture Bite Visit,,item,FALSE,Dentures Related Services,3,FALSE,0
+TRUE,TRUE,703,,,,,FALSE,FALSE,,,Denture Try-in,,Denture Try-in Visit,,item,FALSE,Dentures Related Services,0,FALSE,0
+TRUE,TRUE,704,,#f7bcbc,squareLarge,,FALSE,TRUE,,9309,Full Upper Acrylic Denture,,Full Upper Acrylic Denture Fit,,tooth,FALSE,Dentures Related Services,3,TRUE,0
+TRUE,TRUE,705,,#f7bcbc,squareLarge,,FALSE,TRUE,,9310,Full Lower Acrylic Denture,,Full Lower Acrylic Denture Fit,,tooth,FALSE,Dentures Related Services,3,TRUE,0
+TRUE,TRUE,706,,#f7bcbc,squareLarge,,FALSE,TRUE,,9310,Full Upper & Lower Acrylic Denture,,Full Upper & Lower Acrylic Denture Fit,,tooth,FALSE,Dentures Related Services,3,TRUE,0
+TRUE,TRUE,707,,#f7bcbc,squareLarge,,FALSE,TRUE,,9310,Partial Acrylic Denture,,Partial Acrylic Denture Fit,,tooth,FALSE,Dentures Related Services,3,TRUE,0
+TRUE,TRUE,708,Includes acrylic resin base denture with resin or wrought wire clasps.,#b7ede5,squareLarge,,FALSE,TRUE,,9311,Full Upper Chrome Denture,,Full Upper Chrome Denture Fit,,tooth,FALSE,Dentures Related Services,3,TRUE,0
+TRUE,TRUE,709,Includes acrylic resin base denture with resin or wrought wire clasps.,#b7ede5,squareLarge,,FALSE,TRUE,,9312,Full Lower Chrome Denture,,Full Lower Chrome Denture Fit,,tooth,FALSE,Dentures Related Services,3,TRUE,0
+TRUE,TRUE,710,,#b7ede5,squareLarge,,FALSE,TRUE,,9312,Full Upper & Lower Chrome Denture Fit,,Full Upper & Lower Chrome Denture Fit,,tooth,FALSE,Dentures Related Services,3,FALSE,0
+TRUE,TRUE,711,,#b7ede5,squareLarge,,FALSE,TRUE,,9312,Partial Chrome Denture,,Partial Chrome Denture Fit,,tooth,FALSE,Dentures Related Services,3,TRUE,0
+TRUE,TRUE,712,,#f7bcbc,squareLarge,,FALSE,TRUE,,9399,Tooth Addition to a Acrylic Denture,,Tooth Addition to a Acrylic Denture,,tooth,FALSE,Dentures Related Services,2,FALSE,0
+TRUE,TRUE,713,,#b7ede5,squareLarge,,FALSE,TRUE,,9399,Tooth Addition to a Chrome Denture,,Tooth Addition to a Chrome Denture,,tooth,FALSE,Dentures Related Services,2,FALSE,0
+TRUE,TRUE,714,,,,,FALSE,TRUE,,9399,Adjust Denture ,,Denture Adjustment,,item,FALSE,Dentures Related Services,1,FALSE,0
+TRUE,TRUE,715,,,,,FALSE,TRUE,,9154,Denture Repair,,Denture Repair,,patient,FALSE,Dentures Related Services,0,FALSE,0
+TRUE,TRUE,716,,,,,FALSE,TRUE,,9399,Denture Reline,,Denture Reline,,item,FALSE,Dentures Related Services,2,FALSE,0
+TRUE,TRUE,717,,,,,FALSE,TRUE,,9399,Soft Lining,,Denture Soft Reline,,item,FALSE,Dentures Related Services,2,FALSE,0
+TRUE,TRUE,718,,,,,FALSE,TRUE,,9399,Soft Lining - New Denture,,Denture Soft Reline,,item,FALSE,Dentures Related Services,2,FALSE,0
+TRUE,TRUE,719,Treatment reline using materials designed to heal unhealthy ridges prior to more definitive final restoration.,,,,FALSE,TRUE,,9399,Tissue Conditioning,,Tissue Conditioning,,item,FALSE,Dentures Related Services,2,FALSE,0
+TRUE,TRUE,720,,,,,FALSE,FALSE,,9399,Denture Ease,,Denture Ease,,patient,FALSE,Dentures Related Services,1,FALSE,0
+TRUE,TRUE,721,,#00b7ff,squareLarge,,FALSE,FALSE,,9399,Denture,,Denture,,tooth,FALSE,Dentures Related Services,,TRUE,0
+TRUE,TRUE,800,,,,,FALSE,FALSE,,,Implant Consultation,,Implant Consultation,,patient,FALSE,Implant Services Related Services,,FALSE,0
+TRUE,TRUE,801,Includes second stage surgery and placement of healing cap. ,#0a1af7,implant,,FALSE,TRUE,,,Placement Of Implant,,Implant Placement,,toothCoordinate,FALSE,Implant Services Related Services,,FALSE,0
+TRUE,TRUE,802,Includes placement and removal.  A healing cap is not an interim abutment.,,,,FALSE,FALSE,,,Interim Abutment,,Healing Abutment,,tooth,FALSE,Implant Services Related Services,0,FALSE,0
+TRUE,TRUE,803,,#2d8bfc,squareLarge,,FALSE,FALSE,,,Implant Retained Denture,,Implant Retained Denture,,tooth,FALSE,Implant Services Related Services,,FALSE,0
+TRUE,TRUE,804,Utilized to stabilize and anchor a prosthesis.,#65a9fc,bar,,FALSE,FALSE,,,Connecting Bar for Implant,,Connecting Bar for Implant,,toothCoordinate,FALSE,Implant Services Related Services,,FALSE,0
+TRUE,TRUE,805,Modification of a prefabricated abutment may be necessary.,#65a9fc,implant,,FALSE,TRUE,,,Implant Abutment,,Implant Abutment,,toothCoordinate,FALSE,Implant Services Related Services,,TRUE,0
+TRUE,TRUE,806,"A single crown restoration that is retained, supported and stabilized by an abutment on an implant; may be screw retained or cemented.",#2d8bfc,circleLarge,Implant,FALSE,FALSE,,,Implant Crown,,Implant Crown,,tooth,TRUE,Implant Services Related Services,,FALSE,0
+TRUE,TRUE,807,"A prosthesis that is retained, supported and stabilized by implants or abutments placed on implants but does not have specific relationships between implant positions and replacement teeth; may be screw retained or cemented; commonly referred to as a 'hybrid prosthesis.'",#2d8bfc,squareLarge,Implant,FALSE,FALSE,,,Implant -  Full Denture,,Implant Denture,,tooth,FALSE,Implant Services Related Services,,FALSE,0
+TRUE,TRUE,808,"A prosthesis that is retained, supported and stabilized by implants or abutments placed on implants but does not have specific relationship between implant positions and replacement teeth; may be screw retained or cemented; commonly referred to as a 'hybrid prosthesis'",#2d8bfc,squareLarge,Implant,FALSE,FALSE,,,Implant - Partial Denture,,Implant - Partial Denture,,tooth,FALSE,Implant Services Related Services,,FALSE,0
+TRUE,TRUE,809,,#4283fc,circleLarge,Br-Implant,FALSE,FALSE,,,Implant - Bridge,,Implant Bridge,,tooth,FALSE,Implant Services Related Services,,FALSE,0
+TRUE,TRUE,810,This procedure involves the repair or replacement of any part of the implant supported prosthesis. ,,,,FALSE,FALSE,,,Repair Implant Supported Prosthesis,,Implant Repair,,site,FALSE,Implant Services Related Services,,FALSE,0
+TRUE,TRUE,811,,,,,FALSE,FALSE,,,Debridement Of A Periimplant Defect,,Implant Repair,,site,FALSE,Implant Services Related Services,,FALSE,0
+TRUE,TRUE,812,"Placement of a barrier membrane, or biologic materials to aid in osseous regeneration are reported separately.",,,,FALSE,FALSE,,,Bone Graft At Time Of Implant Placement,,Implant Graft,,site,FALSE,Implant Services Related Services,,FALSE,0
+TRUE,TRUE,813,,,,,FALSE,FALSE,,,Implant Review,,Implant Review ,,item,FALSE,Implant Services Related Services,,FALSE,0
+TRUE,TRUE,814,"This procedure includes a prophylaxis to provide active debriding of the implant and examination of all aspects of the implant system, including the occlusion and stability of the superstructure. The patient is also instructed in thorough daily cleansing of the implant. ",,,,FALSE,FALSE,,,Implant Maintenance Procedures,,Implant Maintenance,,site,FALSE,Implant Services Related Services,,FALSE,0
+TRUE,TRUE,900,,,,,FALSE,TRUE,,9399,Bridge Prep,,Bridge Preparation & Impressions,,tooth,FALSE,Bridges Related Services,3,FALSE,0
+TRUE,TRUE,901,,,,,FALSE,TRUE,,9399,Bridge Try In,,Bridge Try In,,tooth,FALSE,Bridges Related Services,3,FALSE,0
+TRUE,TRUE,902,Not to be used as a temporary or provisional prosthesis.,#bfaf93,circleLarge,Pontic,FALSE,TRUE,,9315,Bonded Bridge Pontic,,Bonded Bridge Pontic,,tooth,FALSE,Bridges Related Services,3,TRUE,0
+TRUE,TRUE,903,,#bfaf93,circleLarge,Retainer,FALSE,FALSE,,9315,Bonded Bridge Retainer,,Bonded Bridge Retainer,,tooth,FALSE,Bridges Related Services,3,TRUE,0
+TRUE,TRUE,904,,#edac13,circleLarge,Pontic,FALSE,TRUE,,9315,Gold Bridge Pontic,,Gold Bridge Pontic,,tooth,FALSE,Bridges Related Services,3,FALSE,0
+TRUE,TRUE,905,,#edac13,circleLarge,Retainer,FALSE,FALSE,,9315,Gold Bridge Retainer,,Gold Bridge Retainer,,tooth,FALSE,Bridges Related Services,3,FALSE,0
+TRUE,TRUE,906,,#ffffcc,circleLarge,Pontic,FALSE,TRUE,,9315,Porcelain Bridge Pontic,,Porcelain Bridge Pontic,,tooth,FALSE,Bridges Related Services,3,TRUE,0
+TRUE,TRUE,907,,#ffffcc,circleLarge,Retainer,FALSE,FALSE,,9315,Porcelain Bridge Retainer,,Porcelain Bridge Retainer,,tooth,FALSE,Bridges Related Services,3,TRUE,0
+TRUE,TRUE,908,,#e0c28d,circleLarge,Pontic,FALSE,TRUE,,9315,Porcelain Bonded Bridge Pontic,,Porcelain Bonded Bridge Pontic,,tooth,FALSE,Bridges Related Services,3,TRUE,0
+TRUE,TRUE,909,,#e0c28d,circleLarge,Retainer,FALSE,FALSE,,9315,Porcelain Bonded Bridge Retainer,,Porcelain Bonded Bridge Retainer,,tooth,FALSE,Bridges Related Services,3,TRUE,0
+TRUE,TRUE,910,,#f2b8f2,squareLarge,Maryland,FALSE,TRUE,,9315,Maryland Bridge,,Maryland Bridge Fit,,tooth,FALSE,Bridges Related Services,3,TRUE,0
+TRUE,TRUE,911,,#f2b8f2,bar,,FALSE,TRUE,,9315,Maryland Wing,,Maryland Wing,,toothCoordinate,FALSE,Bridges Related Services,3,TRUE,0
+TRUE,TRUE,912,A device attached to fixed partial denture retainer or coping which serves to stabilize and anchor a removable overdenture prosthesis. ,#f56cf5,bar,,FALSE,TRUE,,9315,Clasp,,Clasp,,toothCoordinate,FALSE,Bridges Related Services,3,FALSE,0
+TRUE,TRUE,913,,,,,FALSE,TRUE,,9157,Recement Bridge,,Recement Bridge,,site,FALSE,Bridges Related Services,0,FALSE,0
+TRUE,TRUE,914,A non-rigid connector.,,,,FALSE,TRUE,,9399,Stress Breaker,,Stress Breaker,,item,FALSE,Bridges Related Services,3,FALSE,0
+TRUE,TRUE,915,"A male and female pair constitutes one precision attachment, and is separate from the prosthesis.",,,,FALSE,TRUE,,9399,Precision Attachment,,Precision Attachment,,site,FALSE,Bridges Related Services,3,FALSE,0
+TRUE,TRUE,916,,,,,FALSE,TRUE,,9157,Bridge Repair,,Bridge Repair,,site,FALSE,Bridges Related Services,0,FALSE,0
+TRUE,TRUE,917,,#00b7ff,circleLarge,Retainer,FALSE,FALSE,,9315,Bridge Retainer,,Bridge Retainer,,tooth,FALSE,Bridges Related Services,,TRUE,0
+TRUE,TRUE,918,,#00b7ff,circleLarge,Pontic,FALSE,FALSE,,9315,Bridge Pontic,,Bridge Pontic,,tooth,FALSE,Bridges Related Services,,TRUE,0
+TRUE,TRUE,919,,,,,FALSE,FALSE,,9399,Temporary Bridge Unit,,Temporary Bridge ,,tooth,FALSE,Bridges Related Services,2,FALSE,0
+TRUE,TRUE,920,,#00b7ff,circleLarge,bridge,FALSE,FALSE,,,Bridge,,Bridge,,tooth,FALSE,Bridges Related Services,,TRUE,0
+TRUE,TRUE,1000,,,,,FALSE,FALSE,,9014,Ortho Assessment/Review/Exam,<p><strong>C/o:</strong></p><p><strong>O/e:</strong></p><p><strong>IOTN:</strong></p><p><strong>OJ:</strong><strong></strong><br><strong></strong><br><strong></strong><br><strong></strong></p>,Orthodontic Assessment,,patient,FALSE,Orthodontic Related Services,1,FALSE,0
+TRUE,TRUE,1001,,,,,FALSE,FALSE,,,Ortho Review,,Orthodontic Review,,patient,FALSE,Orthodontic Related Services,1,FALSE,0
+TRUE,TRUE,1002,,,,,FALSE,FALSE,,,Ortho Study Models,,Orthodontic Study Models,,site,FALSE,Orthodontic Related Services,0,FALSE,0
+TRUE,TRUE,1004,,,,,FALSE,FALSE,,,Ortho Retention,,Orthodontic Retention,,site,FALSE,Orthodontic Related Services,0,FALSE,0
+TRUE,TRUE,1005,,#FFFFFF,squareSmall,Err:510,FALSE,FALSE,,,Invisalign,,Invisalign,,patient,FALSE,Orthodontic Related Services,0,FALSE,0
+TRUE,TRUE,1006,,,,,FALSE,FALSE,,9401,Removable Upper Appliance,,Removable Upper Appliance,,patient,FALSE,Orthodontic Related Services,3,FALSE,0
+TRUE,TRUE,1007,,,,,FALSE,FALSE,,9402,Removable Lower Appliance,,Removable Lower Appliance,,patient,FALSE,Orthodontic Related Services,3,FALSE,0
+TRUE,TRUE,1008,,,,,FALSE,FALSE,,9403,Functional Appliance Fit,,Functional Appliance,,patient,FALSE,Orthodontic Related Services,3,FALSE,0
+TRUE,TRUE,1009,,,,,FALSE,FALSE,,9404,Fixed Upper Appliance,,Fixed Upper Appliance,,patient,FALSE,Orthodontic Related Services,3,FALSE,0
+TRUE,TRUE,1010,,,,,FALSE,FALSE,,9405,Fixed Lower Appliance,,Fixed Lower Appliance,,patient,FALSE,Orthodontic Related Services,3,FALSE,0
+TRUE,TRUE,1011,,,,,FALSE,FALSE,,9406,Retainer Upper,,Retainer Upper,,patient,FALSE,Orthodontic Related Services,3,FALSE,0
+TRUE,TRUE,1012,,,,,FALSE,FALSE,,9407,Retainer Lower,,Retainer Lower,,patient,FALSE,Orthodontic Related Services,3,FALSE,0
+TRUE,TRUE,1013,,#000000,extracted,,FALSE,TRUE,,9408,Ortho Extraction,"<p>Haemostasis Observed. Post Operative Instructions given.<br>Quantity (ml): 2.0 Maximum No of Cartridges/Visit: 3¬†<br>Anaesthetic Used: Articaine¬†<br>Prescribed by:: TH¬†<br>Primary Adminstration: Infiltration Supplementary Admin: None¬†<br>Espestesin 1.8ml Used With Wand, Septonest 2.2ml Used With Safety Plus Syringe</p>",Extraction,,tooth,FALSE,Orthodontic Related Services,2,FALSE,0
+TRUE,TRUE,1014,NP Ortho Exam,,,,FALSE,FALSE,,9014,Ortho New Patient Exam,<p><strong>Patient's main Concern:</strong>¬†¬†</p><p><strong>O/e :¬†¬†</strong></p><p><strong>IOTN:¬†</strong></p><p><strong>Overjet:¬†</strong></p><p><strong>Waitlist:¬†</strong><strong></strong></p><p><strong><br></strong><strong></strong><br><strong></strong></p>,Ortho New Patient Exam,,patient,FALSE,Orthodontic Related Services,1,FALSE,0
+TRUE,TRUE,1015,,,,,FALSE,FALSE,,,Ortho Debond,,Ortho Debond,,patient,FALSE,Orthodontic Related Services,0,FALSE,0
+TRUE,TRUE,1016,,,,,FALSE,FALSE,,,Orthodontic Separators,,Orthodontic Separators,,patient,FALSE,Orthodontic Related Services,0,FALSE,0
+TRUE,TRUE,1017,,,,,FALSE,FALSE,,,Orthodontic Impressions,,Orthodontic Impressions,,patient,FALSE,Orthodontic Related Services,0,FALSE,0
+TRUE,TRUE,1018,,,,,FALSE,FALSE,,,Ortho Adjustment,,Ortho Adjustment,,patient,FALSE,Orthodontic Related Services,0,FALSE,0
+TRUE,TRUE,1019,,,,,FALSE,FALSE,,,Ortho Bond up,,Ortho Bond up,,patient,FALSE,Orthodontic Related Services,0,FALSE,0
+TRUE,TRUE,1020,,,,,FALSE,FALSE,,9406,Ortho Retainer Fit,,Ortho Retainer Fit,,patient,FALSE,Orthodontic Related Services,0,FALSE,0
+TRUE,TRUE,1021,,,,,FALSE,FALSE,,,Ortho Supervision of Retention,,Ortho Supervision of Retention,,patient,FALSE,Orthodontic Related Services,0,FALSE,0
+TRUE,TRUE,1022,,,,,FALSE,FALSE,,,Orthodontic Emergency,,Orthodontic Emergency,,patient,FALSE,Orthodontic Related Services,0,FALSE,0
+TRUE,TRUE,1023,,,,,FALSE,FALSE,,9404,Ortho Replacement Removeable Appliance,,Ortho Replacement Removeable Appliance,,patient,FALSE,Orthodontic Related Services,0,FALSE,0
+TRUE,TRUE,1024,,,,,FALSE,FALSE,,,Ortho Replacement Essix Retainer,,Ortho Replacement Essix Retainer,,patient,FALSE,Orthodontic Related Services,0,FALSE,0
+TRUE,TRUE,1025,,,,,FALSE,FALSE,,,Ortho Replacement Fixed Retainer,,Ortho Replacement Fixed Retainer,,patient,FALSE,Orthodontic Related Services,0,FALSE,0
+TRUE,TRUE,1026,,,,,FALSE,FALSE,,,Ortho Ceramic Brackets Fixed Appliance Upper,,Ortho Ceramic Brackets Fixed Appliance Upper,,patient,FALSE,Orthodontic Related Services,0,FALSE,0
+TRUE,TRUE,1027,,,,,FALSE,FALSE,,,Ortho Ceramic Brackets Fixed Appliance Lower,,Ortho Ceramic Brackets Fixed Appliance Lower,,patient,FALSE,Orthodontic Related Services,0,FALSE,0
+TRUE,TRUE,1028,,,,,FALSE,FALSE,,,Ortho Sectional Steel Appliance,,Ortho Sectional Steel Appliance,,patient,FALSE,Orthodontic Related Services,0,FALSE,0
+TRUE,TRUE,1029,,,,,FALSE,FALSE,,,Ortho Sectional Ceramic Appliance,,Ortho Sectional Ceramic Appliance,,patient,FALSE,Orthodontic Related Services,0,FALSE,0
+TRUE,TRUE,1030,,,,,FALSE,FALSE,,,Ortho  Bonded (Fixed) Retainer,,Ortho  Bonded (Fixed) Retainer,,patient,FALSE,Orthodontic Related Services,0,FALSE,0
+TRUE,TRUE,1031,,,,,FALSE,FALSE,,,Ortho Stage Payment,,Ortho Stage Payment,,patient,FALSE,Orthodontic Related Services,0,FALSE,0
+TRUE,TRUE,1032,,,,,FALSE,FALSE,,,Ortho - Other Orthodontic Treatment,,Ortho - Other Orthodontic Treatment,,patient,FALSE,Orthodontic Related Services,0,FALSE,0
+TRUE,TRUE,1033,"This includes photographic images, including those obtained by intraoral and extraoral cameras, excluding radiographic images.  These photographic images should be a part of the patient's clinical record ",,,,FALSE,FALSE,,9399,Oral/Facial Photographic Images,,Oral/Facial Photos,,patient,FALSE,Orthodontic Related Services,1,FALSE,0
+TRUE,TRUE,1034,,,,,FALSE,FALSE,,9412,Ortho Photographs,,Clinical Photographs,,patient,FALSE,Diagnostic Related Services,0,FALSE,0
+TRUE,TRUE,1035,,,,,FALSE,FALSE,,,Ortho Removable Appliance,,Removable Appliance,,site,FALSE,Orthodontic Related Services,0,FALSE,0
+TRUE,TRUE,1040,,,,,FALSE,FALSE,,,Functional Appliance Review,,,,patient,FALSE,Orthodontic Related Services,0,FALSE,0
+TRUE,TRUE,1041,,,,,FALSE,FALSE,,9159,Repair To An Appliance Fitted By Another Dentist,,,,patient,FALSE,Orthodontic Related Services,0,FALSE,0
+TRUE,TRUE,1100,,,,,FALSE,FALSE,,,Office Visit - After Regularly Scheduled Hours,,,,patient,FALSE,Other General Services,0,FALSE,0
+TRUE,TRUE,1101,Established patient. Not performed on same day as evaluation. ,,,,FALSE,FALSE,,9317,"Case Presentation, Detailed And Extensive Treatment Planning",,,,patient,FALSE,Other General Services,1,FALSE,0
+TRUE,TRUE,1102,,,,,FALSE,FALSE,,9318,Antibiotic Prescription,,,,patient,FALSE,Other General Services,0,FALSE,0
+TRUE,TRUE,1103,,,,,FALSE,FALSE,,9158, Prescription,,,,patient,FALSE,Other General Services,0,FALSE,0
+TRUE,TRUE,1104,"Includes in-office treatment for root sensitivity.  Typically reported on a 'per visit' basis for application of topical fluoride.  This code is not to be used for bases, liners or adhesives used under restorations. ",,,,FALSE,FALSE,,9399,Sensitive Dentine,,,,site,FALSE,Other General Services,1,FALSE,0
+TRUE,TRUE,1105,,,,,FALSE,FALSE,,9399,Lucia Jig,,,,patient,FALSE,Other General Services,2,FALSE,0
+TRUE,TRUE,1106,"Removable dental appliances, which are designed to minimize the effects of bruxism (grinding) and other occlusal factors.",,,,FALSE,FALSE,,9399,Bite Guard,,,,patient,FALSE,Other General Services,3,FALSE,0
+TRUE,TRUE,1107,,,,,FALSE,FALSE,,,Mouth Guard,,,,patient,FALSE,Other General Services,0,FALSE,0
+TRUE,TRUE,1108,,,,,FALSE,FALSE,,,Sports Mouthguard,,,,patient,FALSE,Other General Services,,FALSE,0
+TRUE,TRUE,1109,,,,,FALSE,FALSE,,9399,Repair And/Or Reline Of Occlusal Guard,,,,patient,FALSE,Other General Services,2,FALSE,0
+TRUE,TRUE,1110,"Includes, but is not limited to, facebow, interocclusal records tracings, and diagnostic wax-up.",,,,FALSE,FALSE,,9399,Occlusion Analysis - Mounted Case,,,,patient,FALSE,Other General Services,1,FALSE,0
+TRUE,TRUE,1111,May also be known as equilibration; reshaping the occlusal surfaces of teeth to create harmonious contact relationships between the maxillary and mandibular teeth. Presently includes discing/odontoplasty/enamoplasty. Typically reported on a per visit basis. This should not be reported when the procedure only involves bite adjustment in the routine post-delivery care for a direct/indirect restoration or fixed/removable prosthodontics.,,,,FALSE,FALSE,,9399,Occlusal Adjustment,,,,patient,FALSE,Other General Services,1,FALSE,0
+TRUE,TRUE,1112,The removal of discolored surface enamel defects resulting from altered mineralization or decalcification of the superficial enamel layer.,,,,FALSE,FALSE,,9399,Enamel Microabrasion  ,,,,tooth,FALSE,Other General Services,1,FALSE,0
+TRUE,TRUE,1113,,,,,FALSE,FALSE,,,In Surgery Bleaching (Whitening),,,,patient,FALSE,Other General Services,,FALSE,0
+TRUE,TRUE,1114,,,,,FALSE,FALSE,,,Home Bleaching Kit (Whitening),,,,patient,FALSE,Other General Services,,FALSE,0
+TRUE,TRUE,1115,,,,,FALSE,FALSE,,,Bleaching Trays,,,,patient,FALSE,Other General Services,,FALSE,0
+TRUE,TRUE,1116,,,,,FALSE,FALSE,,,Stone/Smooth Tooth,,,,tooth,FALSE,Other General Services,0,FALSE,0
+TRUE,TRUE,1117,,,,,FALSE,FALSE,,9399,Impresssions,,,,patient,FALSE,Other General Services,0,FALSE,0
+TRUE,TRUE,1118,,,,,FALSE,FALSE,,,Payment Refund,,,,patient,FALSE,Other General Services,,FALSE,0
+TRUE,TRUE,9975,,,,,FALSE,FALSE,,,Discount,,,,patient,FALSE,Other General Services,,FALSE,0
+TRUE,TRUE,9976,,#ff4245,,,FALSE,FALSE,,,Caries,,,,surface,FALSE,Miscellaneous,,TRUE,0
+TRUE,TRUE,9977,,#000000,text,RCT,FALSE,FALSE,,,Root Filled,,,,toothCoordinate,FALSE,Miscellaneous,0,TRUE,0
+TRUE,TRUE,9978,,,,,FALSE,FALSE,,,Reset Tooth,,,,tooth,TRUE,Miscellaneous,0,TRUE,0
+TRUE,TRUE,9979,,,applyForExtraction,,FALSE,TRUE,,,Tooth Needs to be Extracted,,,,tooth,FALSE,Miscellaneous,0,TRUE,0
+TRUE,FALSE,9980,A tooth that is missing,,applyAbsent,,FALSE,TRUE,,,Missing Tooth,,,,tooth,TRUE,Miscellaneous,0,TRUE,0
+TRUE,FALSE,9981,,#000000,arrowRight,,FALSE,FALSE,,,Drifted Right,,,,toothCoordinate,FALSE,Miscellaneous,0,TRUE,0
+TRUE,FALSE,9982,,#000000,arrowLeft,,FALSE,FALSE,,,Drifted Left,,,,toothCoordinate,FALSE,Miscellaneous,0,TRUE,0
+TRUE,FALSE,9983,,#000000,text,> <,FALSE,FALSE,,,Closed Gap,,,,toothCoordinate,FALSE,Miscellaneous,0,TRUE,0
+TRUE,FALSE,9984,,#000000,text,#,FALSE,FALSE,,,Fractured Tooth,,,,toothCoordinate,FALSE,Miscellaneous,0,TRUE,0
+TRUE,FALSE,9985,Watch this tooth,#000000,text,W,FALSE,FALSE,,,Watch Tooth,,,,toothCoordinate,FALSE,Miscellaneous,0,TRUE,0
+TRUE,TRUE,9986,,,,,FALSE,FALSE,,,Other Tooth Specific Treatment,,,,tooth,FALSE,Miscellaneous,0,FALSE,0
+TRUE,TRUE,9987,,,,,FALSE,FALSE,,,Opening Balance,,,,patient,FALSE,Miscellaneous,0,FALSE,0
+TRUE,TRUE,9988,,,,,FALSE,FALSE,,,Deposit for Future Work,,,,patient,FALSE,Miscellaneous,0,FALSE,0
+TRUE,TRUE,9989,,#000000,,,FALSE,FALSE,,,Decay,,,,surface,FALSE,Miscellaneous,,TRUE,0
+TRUE,FALSE,9990,,,,,FALSE,FALSE,,,General Note,,,,patient,FALSE,Miscellaneous,0,FALSE,0
+TRUE,FALSE,9991,,#000000,text,PE,FALSE,FALSE,,,Partially Erupted Tooth,,,,toothCoordinate,FALSE,Miscellaneous,0,TRUE,0
+TRUE,FALSE,9992,,#000000,text,RR,FALSE,TRUE,,,Retained Root,,,,toothCoordinate,FALSE,Miscellaneous,0,TRUE,0
+TRUE,FALSE,9993,,#000000,text,UE,FALSE,FALSE,,,Unerupted or exfoliated teeth,,,,toothCoordinate,FALSE,Miscellaneous,0,TRUE,0
+TRUE,TRUE,9994,,#d6a5a5,,,FALSE,FALSE,,,Arrested Caries,,,,surface,FALSE,Miscellaneous,0,TRUE,0
+TRUE,FALSE,9995,,,,,FALSE,FALSE,,,Tooth Specific Note,,,,tooth,FALSE,Miscellaneous,0,FALSE,0
+TRUE,TRUE,9996,,#ff0000,,,FALSE,FALSE,,,Early Caries,,,,surface,FALSE,Miscellaneous,0,TRUE,0
+TRUE,TRUE,9997,,#943131,,,FALSE,FALSE,,,Cavity,,,,surface,FALSE,Miscellaneous,0,TRUE,0
+TRUE,TRUE,9998,,#0aff2b,text,Wear,FALSE,FALSE,,,Surface Wear (Worn),,,,toothCoordinate,FALSE,Miscellaneous,0,TRUE,0
+TRUE,TRUE,9999,Used for procedure that is not adequately described by a code. Describe procedure.,,,,FALSE,FALSE,,9399,Other Treatment,,,,patient,FALSE,Miscellaneous,2,FALSE,0

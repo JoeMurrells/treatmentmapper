@@ -18,9 +18,9 @@ using Treatment_Mapper.Mapping_Functions;
 
 namespace Treatment_Mapper
 {
-    public class MasterComparison
+    public static class MasterComparison
     {
-        public int? MapFromMaster(List<MASTER> masterlist, Object TDesc, Object TCode, int accuracy, int thresholdValue, string masterPath, List<int> valid_codes,string exePath,bool logcheck,Logger log)
+        public static int? MapFromMaster(List<MASTER> masterlist, Object TDesc, Object TCode, int thresholdValue, string masterPath, List<int> valid_codes,string exePath,bool logcheck,Logger log)
         {
 
             var results = new ConcurrentBag<Results>();
@@ -40,10 +40,9 @@ namespace Treatment_Mapper
                     Value = Fuzz.WeightedRatio(description, nomenclature)
                 };
 
-                if (match.Value >= accuracy)
-                {
-                    results.Add(new Results(nomenclature, match.Value, M.code));
-                }
+                
+                results.Add(new Results(nomenclature, match.Value, M.code));
+                
                 match.Dispose();
 
             });
@@ -59,12 +58,19 @@ namespace Treatment_Mapper
 
             if (finalMatch <= thresholdValue || finalResult <= 0)
             {
-                userInput codeInput = new userInput();
-                TCode = codeInput.userCodeInput(TDesc, finalDesc, finalMatch, valid_codes, masterPath, TCode, finalResult);
+                var inputResult = UserInput.UserCodeInput(TDesc, finalDesc, finalMatch, valid_codes, masterPath, ref TCode, finalResult);
+                while (inputResult == DialogResult.Retry)
+                {
+                    inputResult = UserInput.UserCodeInput(TDesc, finalDesc, finalMatch, valid_codes, masterPath, ref TCode, finalResult);
+                }
             }
             else { TCode = finalResult; }
 
-            log.UpdateLog(logcheck, TDesc, finalDesc, finalMatch, finalResult, exePath);
+            if (logcheck == true)
+            {
+                log.UpdateLog(logcheck, TDesc, finalDesc, finalMatch, finalResult, exePath);
+            }
+            
 
             int? outputCode = Convert.ToInt16(TCode);
             return outputCode;

@@ -4,32 +4,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Treatment_Mapper.Mapping_Functions;
 using Treatment_Mapper.Master_Class;
 
 namespace Treatment_Mapper
 {
-    public class genericMapper
+    public static class genericMapper
     {
-        public void Mapper(IProgress<int> reportProgress, string readerpath, string masterPath, string system, int accuracy, string pRef, bool skip, bool logcheck, Logger log, int thresholdValue, string exePath, string csvName)
+        public static void Mapper(IProgress<int> reportProgress, string readerpath, string masterPath, string system, string pRef, bool skip, bool logcheck, Logger log, int thresholdValue, string exePath, string csvName)
         {
 
                 int count = 0;
                 int p = 0;
 
-                MasterFunctions generateMaster = new MasterFunctions();
-                var masterlist = generateMaster.GenerateMasterList(masterPath);
-                var valid_codes = generateMaster.CodeValidation(masterlist);
+                var masterlist = MasterFunctions.GenerateMasterList(masterPath);
+                var codeValidation = new CodeValidation();
+                List<int> valid_codes = codeValidation.ValidateCode();
 
-                MasterComparison master = new MasterComparison();
-
-                CSV csvReader = new CSV();
-                var outputcsv = csvReader.GenerateOutputCSV(exePath, pRef, csvName, system);
+                var outputcsv = CSV.GenerateOutputCSV(exePath, pRef, csvName, system);
 
                 switch (system)
                 {
                 case "R4":
                     {
-                        var r4treatments = csvReader.ReadR4CSV(readerpath);
+                        var r4treatments = CSV.ReadR4CSV(readerpath);
 
                         foreach (var T in r4treatments)
                         {
@@ -45,7 +43,7 @@ namespace Treatment_Mapper
                             if (reportProgress != null)
                                 reportProgress.Report(p);
 
-                            T.DentallyCode = master.MapFromMaster(masterlist, T.Description, T.DentallyCode, accuracy, thresholdValue, masterPath, valid_codes, exePath, logcheck, log);
+                            T.DentallyCode = MasterComparison.MapFromMaster(masterlist, T.Description, T.DentallyCode, thresholdValue, masterPath, valid_codes, exePath, logcheck, log);
 
                             if (T.DentallyCode == null)
                             {
@@ -55,13 +53,13 @@ namespace Treatment_Mapper
                             outputcsv.WriteRecord(T);
                             outputcsv.NextRecord();
                         }
-                        csvReader.WriteOutputCSV(outputcsv, r4treatments);
+                        CSV.WriteOutputCSV(outputcsv, r4treatments);
                         MessageBox.Show($"Finished! Unable to map {count} treatments");
                     }
                     break;
                 case "EXACT/SOEL":
                     {
-                        var exactTreatments = csvReader.ReadExactCSV(readerpath);
+                        var exactTreatments = CSV.ReadExactCSV(readerpath);
 
                         foreach (var T in exactTreatments)
                         {
@@ -76,7 +74,7 @@ namespace Treatment_Mapper
                                 continue;
                             }
 
-                            T.dentally_code = master.MapFromMaster(masterlist, T.exact_desc, T.dentally_code, accuracy, thresholdValue, masterPath, valid_codes, exePath, logcheck, log);
+                            T.dentally_code = MasterComparison.MapFromMaster(masterlist, T.exact_desc, T.dentally_code, thresholdValue, masterPath, valid_codes, exePath, logcheck, log);
 
                             if (T.dentally_code == null)
                             {
@@ -86,13 +84,13 @@ namespace Treatment_Mapper
                             outputcsv.NextRecord();
                         }
 
-                        csvReader.WriteOutputCSV(outputcsv, exactTreatments);
+                        CSV.WriteOutputCSV(outputcsv, exactTreatments);
                         MessageBox.Show($"Finished! Unable to map {count} treatments");
                     }
                     break;
                 case "BRIDGEIT":
                     {
-                        var bridgeTreatments = csvReader.ReadBridgeITCSV(readerpath);
+                        var bridgeTreatments = CSV.ReadBridgeITCSV(readerpath);
 
                         foreach (var T in bridgeTreatments)
                         {
@@ -108,7 +106,7 @@ namespace Treatment_Mapper
                             if (reportProgress != null)
                                 reportProgress.Report(p);
 
-                            T.dentally_code = master.MapFromMaster(masterlist, T.treatment_id, T.dentally_code, accuracy, thresholdValue, masterPath, valid_codes, exePath, logcheck, log);
+                            T.dentally_code = MasterComparison.MapFromMaster(masterlist, T.treatment_id, T.dentally_code, thresholdValue, masterPath, valid_codes, exePath, logcheck, log);
 
                             if (T.dentally_code == null)
                             {
@@ -118,13 +116,13 @@ namespace Treatment_Mapper
                             outputcsv.WriteRecord(T);
                             outputcsv.NextRecord();
                         }
-                        csvReader.WriteOutputCSV(outputcsv, bridgeTreatments);
+                        CSV.WriteOutputCSV(outputcsv, bridgeTreatments);
                         MessageBox.Show($"Finished! Unable to map {count} treatments");
                     }
                     break;
                 case "ISMILE":
                     {
-                        var iSmiletreatments = csvReader.ReadIsmileCSV(readerpath);
+                        var iSmiletreatments = CSV.ReadIsmileCSV(readerpath);
 
                         foreach (var T in iSmiletreatments)
                         {
@@ -140,7 +138,7 @@ namespace Treatment_Mapper
                             if (reportProgress != null)
                                 reportProgress.Report(p);
 
-                            T.dentally_code = master.MapFromMaster(masterlist, T.treatment_name, T.dentally_code, accuracy, thresholdValue, masterPath, valid_codes, exePath, logcheck, log);
+                            T.dentally_code = MasterComparison.MapFromMaster(masterlist, T.nomenclature, T.dentally_code, thresholdValue, masterPath, valid_codes, exePath, logcheck, log);
 
                             if (T.dentally_code == null)
                             {
@@ -150,13 +148,13 @@ namespace Treatment_Mapper
                             outputcsv.WriteRecord(T);
                             outputcsv.NextRecord();
                         }
-                        csvReader.WriteOutputCSV(outputcsv, iSmiletreatments);
+                        CSV.WriteOutputCSV(outputcsv, iSmiletreatments);
                         MessageBox.Show($"Finished! Unable to map {count} treatments");
                     }
                     break;
                 case "SFD":
                     {
-                        var sfdtreatments = csvReader.ReadSFDCSV(readerpath);
+                        var sfdtreatments = CSV.ReadSFDCSV(readerpath);
 
                         foreach (var T in sfdtreatments)
                         {
@@ -172,7 +170,7 @@ namespace Treatment_Mapper
                             if (reportProgress != null)
                                 reportProgress.Report(p);
 
-                            T.dentally_code = master.MapFromMaster(masterlist, T.nomenclature, T.dentally_code, accuracy, thresholdValue, masterPath, valid_codes, exePath, logcheck, log);
+                            T.dentally_code = MasterComparison.MapFromMaster(masterlist, T.nomenclature, T.dentally_code, thresholdValue, masterPath, valid_codes, exePath, logcheck, log);
 
                             if (T.dentally_code == null)
                             {
@@ -182,7 +180,7 @@ namespace Treatment_Mapper
                             outputcsv.WriteRecord(T);
                             outputcsv.NextRecord();
                         }
-                        csvReader.WriteOutputCSV(outputcsv, sfdtreatments);
+                        CSV.WriteOutputCSV(outputcsv, sfdtreatments);
                         MessageBox.Show($"Finished! Unable to map {count} treatments");
                     }
                     break;

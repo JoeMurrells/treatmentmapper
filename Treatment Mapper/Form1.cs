@@ -24,11 +24,11 @@ namespace Treatment_Mapper
         {
             string pRef = textBox1.Text;
             string PMS = listBox1.Text;
-            int accuracy = Convert.ToInt16(numericUpDown1.Text);
-            int threshold = 85; /*Convert.ToInt16(thresholdValue.Text);*/
+            int threshold = 85;
             string masterPath;
             string exePath = Application.StartupPath;
             string csvName;
+            Logger log = null;
 
             if (!Directory.Exists($@"{exePath}\MasterCSV"))
             {
@@ -114,11 +114,11 @@ namespace Treatment_Mapper
             };
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                Logger log = new Logger();
+                
 
                 if (logCheck.Checked == true)
                 {
-                    log.CreateLog(exePath, openFileDialog1.FileName, masterPath, pRef, PMS, accuracy);
+                     log = new Logger(exePath, openFileDialog1.FileName, masterPath, pRef, PMS);
                 }
 
                 var reportProgress = new Progress<int>(processed =>
@@ -128,10 +128,9 @@ namespace Treatment_Mapper
                    button1.Enabled = false;
                 });
 
-                genericMapper map = new genericMapper();
                 await Task.Run(() =>
                 {
-                    map.Mapper(reportProgress, openFileDialog1.FileName, masterPath, PMS, accuracy, pRef, skipcheck.Checked, logCheck.Checked, log, threshold, exePath, csvName);
+                    genericMapper.Mapper(reportProgress, openFileDialog1.FileName, masterPath, PMS, pRef, skipcheck.Checked, logCheck.Checked, log, threshold, exePath, csvName);
                 });
                
                 
