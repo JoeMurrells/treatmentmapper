@@ -30,23 +30,24 @@ namespace Treatment_Mapper
         {
             CodeValidation codes = new CodeValidation();
 
-            resultsBox.Text = "";
+            var lines = codes.Codes.Select(kv => kv.Key + ": " + kv.Value.ToString());
+            resultsBox.Clear();
 
             foreach (KeyValuePair<string, int> C in codes.Codes)
             {
-                var match = Fuzz.WeightedRatio(searchBox.Text.ToLower(), C.Key.ToLower());
+                var textMatch = Fuzz.WeightedRatio(searchBox.Text.ToLower(), C.Key.ToLower());
+                var codeMatch = Fuzz.WeightedRatio(searchBox.Text.ToLower(), C.Value.ToString());
 
-                if (searchBox.Text == "")
-                    match = 100;
 
-                if (match > 80)
+                if (textMatch > 80 || codeMatch == 100)
                 {
-                    resultsBox.AppendText($"{C.Key},{C.Value}" + Environment.NewLine);
-
+                    resultsBox.AppendText($"{C.Key}: {C.Value}" + Environment.NewLine);
+                }
+                else if (searchBox.Text == "")
+                {
+                    resultsBox.Text = string.Join(Environment.NewLine, lines);
                 }
             }
-            resultsBox.Select(0, 0);
-            resultsBox.ScrollToCaret();
         }
     }
 }

@@ -51,6 +51,7 @@
             this.resultsBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.resultsBox.Size = new System.Drawing.Size(758, 200);
             this.resultsBox.TabIndex = 0;
+            this.resultsBox.WordWrap = false;
             // 
             // inputdescBox
             // 
