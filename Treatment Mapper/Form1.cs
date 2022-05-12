@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using CsvHelper;
 using FuzzySharp;
 using System.IO;
+using Treatment_Mapper.Support_Functions;
 
 namespace Treatment_Mapper
 {
@@ -30,22 +31,9 @@ namespace Treatment_Mapper
             string csvName;
             Logger log = null;
 
-            if (!Directory.Exists($@"{exePath}\MasterCSV"))
-            {
-                Directory.CreateDirectory($@"{exePath}\MasterCSV");
-            }
+            FolderCreation.CreateFolders(exePath, pRef);
 
-            if (!Directory.Exists($@"{exePath}\output"))
-            {
-                Directory.CreateDirectory($@"{exePath}\output");
-            }
-
-            if (!Directory.Exists($@"{exePath}\backup"))
-            {
-                Directory.CreateDirectory($@"{exePath}\backup");
-            }
-
-            Directory.CreateDirectory($@"{exePath}\output\{pRef}");
+            
 
             File.Delete($@"{exePath}\log.txt");
 

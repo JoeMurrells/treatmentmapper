@@ -24,13 +24,11 @@ namespace Treatment_Mapper
             {
                 resultsBox.AppendText($"{C.Key},{C.Value}" + Environment.NewLine);
             }
-
+            
         }
-
         private void searchBox_TextChanged(object sender, EventArgs e)
         {
             CodeValidation codes = new CodeValidation();
-            
 
             resultsBox.Text = "";
 
@@ -38,12 +36,17 @@ namespace Treatment_Mapper
             {
                 var match = Fuzz.WeightedRatio(searchBox.Text.ToLower(), C.Key.ToLower());
 
+                if (searchBox.Text == "")
+                    match = 100;
+
                 if (match > 80)
                 {
                     resultsBox.AppendText($"{C.Key},{C.Value}" + Environment.NewLine);
+
                 }
-                
             }
+            resultsBox.Select(0, 0);
+            resultsBox.ScrollToCaret();
         }
     }
 }
