@@ -13,31 +13,43 @@ namespace Treatment_Mapper.Master_Class
     {
         public static List<MASTER> GenerateMasterList(string masterPath)
         {
-            var masterReader = new StreamReader(masterPath);
-            var masterCSV = new CsvReader(masterReader, System.Globalization.CultureInfo.InvariantCulture);
-            var master = masterCSV.GetRecords<MASTER>();
-            var masterlist = master.ToList();
-            masterReader.Close();
-            return masterlist;
+            using (var masterReader = new StreamReader(masterPath))
+            using (var masterCSV = new CsvReader(masterReader, System.Globalization.CultureInfo.InvariantCulture))
+            {
+                var master = masterCSV.GetRecords<MASTER>();
+                var masterlist = master.ToList();
+                return masterlist;
+            }
+             
 
         }
 
         public static void UpdateMasterList(string masterPath, Object T0, Object T1)
         {
-            var config = new CsvConfiguration(System.Globalization.CultureInfo.InvariantCulture)
-            {
+            List<MASTER> masterlist = GenerateMasterList(masterPath);
 
-                HasHeaderRecord = false,
-            };
-            using (var stream = File.Open($"{masterPath}", FileMode.Append))
-            using (var masterUpdate = new StreamWriter(stream))
-            using (var mastercsvUpdate = new CsvWriter(masterUpdate, config))
+            if (masterlist.Contains(T0))
             {
-                /*mastercsvUpdate.WriteRecord(T);*/
-                mastercsvUpdate.WriteField(T0);
-                mastercsvUpdate.WriteField(T1);
-                mastercsvUpdate.NextRecord();
+                return;
             }
+            else
+            {
+                var config = new CsvConfiguration(System.Globalization.CultureInfo.InvariantCulture)
+                {
+
+                    HasHeaderRecord = false,
+                };
+                using (var stream = File.Open($"{masterPath}", FileMode.Append))
+                using (var masterUpdate = new StreamWriter(stream))
+                using (var mastercsvUpdate = new CsvWriter(masterUpdate, config))
+                {
+                    mastercsvUpdate.WriteField(T0);
+                    mastercsvUpdate.WriteField(T1);
+                    mastercsvUpdate.NextRecord();
+                }
+            }
+
+           
         }
 
     }
