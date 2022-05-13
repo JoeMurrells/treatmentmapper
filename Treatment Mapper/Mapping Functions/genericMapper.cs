@@ -88,6 +88,7 @@ namespace Treatment_Mapper
                         MessageBox.Show($"Finished! Unable to map {count} treatments");
                     }
                     break;
+                case "EDGE":
                 case "BRIDGEIT":
                     {
                         var bridgeTreatments = CSV.ReadBridgeITCSV(readerpath);

@@ -21,6 +21,7 @@ namespace Treatment_Mapper
                     break;
                 case "EXACT/SOEL": outputcsv.WriteHeader<EXACT>();
                     break;
+                case "EDGE":
                 case "BRIDGEIT": outputcsv.WriteHeader<BridgeIT>();
                     break;
                 case "ISMILE":

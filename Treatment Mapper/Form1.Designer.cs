@@ -136,7 +136,8 @@ namespace Treatment_Mapper
             "EXACT/SOEL",
             "BRIDGEIT",
             "ISMILE",
-            "SFD"});
+            "SFD",
+            "EDGE"});
             this.listBox1.Location = new System.Drawing.Point(6, 64);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(189, 21);
