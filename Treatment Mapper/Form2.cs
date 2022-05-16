@@ -39,9 +39,11 @@ namespace Treatment_Mapper
                 var codeMatch = Fuzz.WeightedRatio(searchBox.Text.ToLower(), C.Value.ToString());
 
 
-                if (textMatch > 80 || codeMatch == 100)
+                if (textMatch > 80 || codeMatch > 80)
                 {
                     resultsBox.AppendText($"{C.Key}: {C.Value}" + Environment.NewLine);
+                    resultsBox.Select(0, 0);
+                    resultsBox.ScrollToCaret();
                 }
                 else if (searchBox.Text == "")
                 {

@@ -49,7 +49,7 @@
             this.resultsBox.Name = "resultsBox";
             this.resultsBox.ReadOnly = true;
             this.resultsBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.resultsBox.Size = new System.Drawing.Size(758, 200);
+            this.resultsBox.Size = new System.Drawing.Size(1018, 321);
             this.resultsBox.TabIndex = 0;
             this.resultsBox.WordWrap = false;
             // 
@@ -143,7 +143,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1042, 581);
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.codeBox);

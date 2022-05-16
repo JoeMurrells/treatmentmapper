@@ -199,7 +199,7 @@ namespace Treatment_Mapper.Mapping_Functions
             {"Office Visit - After Regularly Scheduled Hours",1100},
             {"Case Presentation, Detailed And Extensive Treatment Planning",1101},
             {"Antibiotic Prescription",1102},
-            {" Prescription",1103},
+            {"Prescription",1103},
             {"Sensitive Dentine",1104},
             {"Lucia Jig",1105},
             {"Bite Guard",1106},
