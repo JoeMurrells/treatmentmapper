@@ -208,7 +208,7 @@ namespace Treatment_Mapper.Mapping_Functions
             {"Repair And/Or Reline Of Occlusal Guard",1109},
             {"Occlusion Analysis - Mounted Case",1110},
             {"Occlusal Adjustment",1111},
-            {"Enamel Microabrasion  ",1112},
+            {"Enamel Microabrasion",1112},
             {"In Surgery Bleaching (Whitening)",1113},
             {"Home Bleaching Kit (Whitening)",1114},
             {"Bleaching Trays",1115},

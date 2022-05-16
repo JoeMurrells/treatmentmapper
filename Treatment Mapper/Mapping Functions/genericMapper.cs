@@ -185,6 +185,38 @@ namespace Treatment_Mapper
                         MessageBox.Show($"Finished! Unable to map {count} treatments");
                     }
                     break;
+                case "AERONA":
+                    {
+                        var aeronaTreatments = CSV.ReadAeronaCSV(readerpath);
+
+                        foreach (var T in aeronaTreatments)
+                        {
+                            if (T.dentally_code >= 0 && skip == true)
+                            {
+                                outputcsv.WriteRecord(T);
+                                outputcsv.NextRecord();
+                                continue;
+                            }
+
+                            p += 1;
+
+                            if (reportProgress != null)
+                                reportProgress.Report(p);
+
+                            T.dentally_code = MasterComparison.MapFromMaster(masterlist, T.aerona_description, T.dentally_code, thresholdValue, masterPath, valid_codes, exePath, logcheck, log);
+
+                            if (T.dentally_code == null)
+                            {
+                                count += 1;
+                            }
+
+                            outputcsv.WriteRecord(T);
+                            outputcsv.NextRecord();
+                        }
+                        CSV.WriteOutputCSV(outputcsv, aeronaTreatments);
+                        MessageBox.Show($"Finished! Unable to map {count} treatments");
+                    }
+                    break;
             }
 
                 

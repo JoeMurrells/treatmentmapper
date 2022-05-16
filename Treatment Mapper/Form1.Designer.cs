@@ -137,7 +137,8 @@ namespace Treatment_Mapper
             "BRIDGEIT",
             "ISMILE",
             "SFD",
-            "EDGE"});
+            "EDGE",
+            "AERONA"});
             this.listBox1.Location = new System.Drawing.Point(6, 64);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(189, 21);

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using CsvHelper;
+using Treatment_Mapper.PMS_Classes;
 
 namespace Treatment_Mapper
 {
@@ -29,6 +30,9 @@ namespace Treatment_Mapper
                     break;
                 case "SFD":
                     outputcsv.WriteHeader<SFD>();
+                    break;
+                case "AERONA":
+                    outputcsv.WriteHeader<Aerona>();
                     break;
             }
             outputcsv.NextRecord();
@@ -76,6 +80,13 @@ namespace Treatment_Mapper
             var csv = new CsvReader(reader, System.Globalization.CultureInfo.InvariantCulture);
             var SFD = csv.GetRecords<SFD>();
             return SFD;
+        }
+        public static IEnumerable<Aerona> ReadAeronaCSV(string readerpath)
+        {
+            var reader = new StreamReader(readerpath);
+            var csv = new CsvReader(reader, System.Globalization.CultureInfo.InvariantCulture);
+            var Aerona = csv.GetRecords<Aerona>();
+            return Aerona;
         }
     }
 }
