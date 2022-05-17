@@ -118,7 +118,7 @@ namespace Treatment_Mapper
 
                 await Task.Run(() =>
                 {
-                    genericMapper.Mapper(reportProgress, openFileDialog1.FileName, masterPath, PMS, pRef, skipcheck.Checked, logCheck.Checked, log, threshold, exePath, csvName);
+                    GenericMapper.Mapper(reportProgress, openFileDialog1.FileName, masterPath, PMS, pRef, skipcheck.Checked, logCheck.Checked, log, threshold, exePath, csvName);
                 });
                
                 

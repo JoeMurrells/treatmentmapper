@@ -9,7 +9,7 @@ using Treatment_Mapper.Master_Class;
 
 namespace Treatment_Mapper
 {
-    public static class genericMapper
+    public static class GenericMapper
     {
         public static void Mapper(IProgress<int> reportProgress, string readerpath, string masterPath, string system, string pRef, bool skip, bool logcheck, Logger log, int thresholdValue, string exePath, string csvName)
         {
@@ -17,7 +17,7 @@ namespace Treatment_Mapper
                 int count = 0;
                 int p = 0;
 
-                var masterlist = MasterFunctions.GenerateMasterList(masterPath);
+                var masterlist = new MasterFunctions(masterPath);
                 var codeValidation = new CodeValidation();
                 List<int> valid_codes = codeValidation.ValidateCode();
 
@@ -43,7 +43,7 @@ namespace Treatment_Mapper
                             if (reportProgress != null)
                                 reportProgress.Report(p);
 
-                            T.DentallyCode = MasterComparison.MapFromMaster(masterlist, T.Description, T.DentallyCode, thresholdValue, masterPath, valid_codes, exePath, logcheck, log);
+                            T.DentallyCode = MasterComparison.MapFromMaster(masterlist.masterList, T.Description, T.DentallyCode, thresholdValue, masterPath, valid_codes, exePath, logcheck, log);
 
                             if (T.DentallyCode == null)
                             {
@@ -74,7 +74,7 @@ namespace Treatment_Mapper
                                 continue;
                             }
 
-                            T.dentally_code = MasterComparison.MapFromMaster(masterlist, T.exact_desc, T.dentally_code, thresholdValue, masterPath, valid_codes, exePath, logcheck, log);
+                            T.dentally_code = MasterComparison.MapFromMaster(masterlist.masterList, T.exact_desc, T.dentally_code, thresholdValue, masterPath, valid_codes, exePath, logcheck, log);
 
                             if (T.dentally_code == null)
                             {
@@ -107,7 +107,7 @@ namespace Treatment_Mapper
                             if (reportProgress != null)
                                 reportProgress.Report(p);
 
-                            T.dentally_code = MasterComparison.MapFromMaster(masterlist, T.treatment_id, T.dentally_code, thresholdValue, masterPath, valid_codes, exePath, logcheck, log);
+                            T.dentally_code = MasterComparison.MapFromMaster(masterlist.masterList, T.treatment_id, T.dentally_code, thresholdValue, masterPath, valid_codes, exePath, logcheck, log);
 
                             if (T.dentally_code == null)
                             {
@@ -139,7 +139,7 @@ namespace Treatment_Mapper
                             if (reportProgress != null)
                                 reportProgress.Report(p);
 
-                            T.dentally_code = MasterComparison.MapFromMaster(masterlist, T.nomenclature, T.dentally_code, thresholdValue, masterPath, valid_codes, exePath, logcheck, log);
+                            T.dentally_code = MasterComparison.MapFromMaster(masterlist.masterList, T.nomenclature, T.dentally_code, thresholdValue, masterPath, valid_codes, exePath, logcheck, log);
 
                             if (T.dentally_code == null)
                             {
@@ -171,7 +171,7 @@ namespace Treatment_Mapper
                             if (reportProgress != null)
                                 reportProgress.Report(p);
 
-                            T.dentally_code = MasterComparison.MapFromMaster(masterlist, T.nomenclature, T.dentally_code, thresholdValue, masterPath, valid_codes, exePath, logcheck, log);
+                            T.dentally_code = MasterComparison.MapFromMaster(masterlist.masterList, T.nomenclature, T.dentally_code, thresholdValue, masterPath, valid_codes, exePath, logcheck, log);
 
                             if (T.dentally_code == null)
                             {
@@ -203,7 +203,7 @@ namespace Treatment_Mapper
                             if (reportProgress != null)
                                 reportProgress.Report(p);
 
-                            T.dentally_code = MasterComparison.MapFromMaster(masterlist, T.aerona_description, T.dentally_code, thresholdValue, masterPath, valid_codes, exePath, logcheck, log);
+                            T.dentally_code = MasterComparison.MapFromMaster(masterlist.masterList, T.aerona_description, T.dentally_code, thresholdValue, masterPath, valid_codes, exePath, logcheck, log);
 
                             if (T.dentally_code == null)
                             {

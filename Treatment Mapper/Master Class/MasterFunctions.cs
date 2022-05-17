@@ -9,15 +9,28 @@ using System.IO;
 
 namespace Treatment_Mapper.Master_Class
 {
-    public static class MasterFunctions
+    public class MasterFunctions
     {
-        public static List<MASTER> GenerateMasterList(string masterPath)
+        public List<MASTER> masterList { get; set; }  
+
+        public MasterFunctions(string masterPath)
         {
             using (var masterReader = new StreamReader(masterPath))
             using (var masterCSV = new CsvReader(masterReader, System.Globalization.CultureInfo.InvariantCulture))
             {
                 var master = masterCSV.GetRecords<MASTER>();
                 var masterlist = master.ToList();
+                this.masterList = masterlist;
+            }
+        }
+        public List<MASTER> GenerateMasterList(string masterPath)
+        {
+            using (var masterReader = new StreamReader(masterPath))
+            using (var masterCSV = new CsvReader(masterReader, System.Globalization.CultureInfo.InvariantCulture))
+            {
+                var master = masterCSV.GetRecords<MASTER>();
+                var masterlist = master.ToList();
+                this.masterList = masterlist;
                 return masterlist;
             }
              
@@ -26,9 +39,9 @@ namespace Treatment_Mapper.Master_Class
 
         public static void UpdateMasterList(string masterPath, Object T0, Object T1)
         {
-            List<MASTER> masterlist = GenerateMasterList(masterPath);
+            var masterlist = new MasterFunctions(masterPath);
 
-            if (masterlist.Contains(T0))
+            if (masterlist.masterList.Contains(T0))
             {
                 return;
             }
