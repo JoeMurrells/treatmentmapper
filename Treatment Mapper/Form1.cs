@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using CsvHelper;
 using FuzzySharp;
 using System.IO;
+using Treatment_Mapper.Support_Functions;
 
 namespace Treatment_Mapper
 {
@@ -24,12 +25,15 @@ namespace Treatment_Mapper
         {
             string pRef = textBox1.Text;
             string PMS = listBox1.Text;
-            int accuracy = Convert.ToInt16(numericUpDown1.Text);
-            int threshold = 85; /*Convert.ToInt16(thresholdValue.Text);*/
+            int threshold = 85;
             string masterPath;
             string exePath = Application.StartupPath;
+            string csvName;
+            Logger log = null;
 
-            Directory.CreateDirectory($@"{exePath}\output\{pRef}");
+            FolderCreation.CreateFolders(exePath, pRef);
+
+            
 
             File.Delete($@"{exePath}\log.txt");
 
@@ -48,11 +52,12 @@ namespace Treatment_Mapper
             {
                 masterPath = $@"{exePath}\MasterCSV\bupa_master.csv";
                 File.Copy(masterPath, $@"{exePath}\backup\bupa_master.csv", true);
+                threshold = 95;
             }
             else if (bupa.Checked == false && csvcheckbox.Checked == true)
             {
                 masterPath = $@"{exePath}\MasterCSV\comparisonmaster.csv";
-                threshold = 95;
+                threshold = 100;
             }
             else if (bupa.Checked == true && csvcheckbox.Checked == true)
             {
@@ -65,6 +70,19 @@ namespace Treatment_Mapper
                 File.Copy(masterPath, $@"{exePath}\backup\master.csv", true);
             }
 
+            if (PMS == "R4" || PMS == "SFD" || PMS == "EDGE" || PMS == "AERONA")
+
+            {
+                csvName = "dentally_treatments.csv";
+            }
+            else if (PMS == "EXACT/SOEL" || PMS == "BRIDGEIT")
+            {
+                csvName = "treatment_map.csv";
+            }
+            else
+            {
+                csvName = "treatments.csv";
+            }
 
             OpenFileDialog openFileDialog1 = new OpenFileDialog
             {
@@ -84,11 +102,11 @@ namespace Treatment_Mapper
             };
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                Logger log = new Logger();
+                
 
                 if (logCheck.Checked == true)
                 {
-                    log.CreateLog(exePath, openFileDialog1.FileName, masterPath, pRef, PMS, accuracy);
+                     log = new Logger(exePath, openFileDialog1.FileName, masterPath, pRef, PMS);
                 }
 
                 var reportProgress = new Progress<int>(processed =>
@@ -98,44 +116,11 @@ namespace Treatment_Mapper
                    button1.Enabled = false;
                 });
 
-                    switch (PMS)
-                    {
-                        case "R4":
-                            R4 r4Map = new R4();
-                            await Task.Run(() =>
-                            {
-                                r4Map.R4Mapper(reportProgress, openFileDialog1.FileName, masterPath, PMS, accuracy, pRef, skipcheck.Checked, logCheck.Checked,log, threshold, exePath, "dentally_treatments.csv");
-                            });
-                        break;
-                        case "EXACT":
-                            EXACT exactMap = new EXACT();
-                            await Task.Run(() =>
-                            {
-                                exactMap.ExactMapper(reportProgress, openFileDialog1.FileName, masterPath, PMS, accuracy, pRef, skipcheck.Checked, logCheck.Checked,log, threshold, exePath, "treatment_map.csv");
-                            });
-                        break;
-                        case "BRIDGEIT":
-                            BridgeIT bridgeMap = new BridgeIT();
-                            await Task.Run(() =>
-                            {
-                                bridgeMap.BridgeITMapper(reportProgress, openFileDialog1.FileName, masterPath, PMS, accuracy, pRef, skipcheck.Checked, logCheck.Checked,log, threshold, exePath, "treatment_map.csv");
-                            });
-                        break;
-                    case "ISMILE":
-                        ISMILE ismileMap = new ISMILE();
-                        await Task.Run(() =>
-                        {
-                            ismileMap.IsmileMapper(reportProgress, openFileDialog1.FileName, masterPath, PMS, accuracy, pRef, skipcheck.Checked, logCheck.Checked,log, threshold, exePath, "treatments.csv");
-                        });
-                        break;
-                    case "SFD":
-                        SFD sfdMap = new SFD();
-                        await Task.Run(() =>
-                        {
-                            sfdMap.SFDMapper(reportProgress, openFileDialog1.FileName, masterPath, PMS, accuracy, pRef, skipcheck.Checked, logCheck.Checked,log, threshold, exePath, "dentally_treatments.csv");
-                        });
-                        break;
-                }
+                await Task.Run(() =>
+                {
+                    GenericMapper.Mapper(reportProgress, openFileDialog1.FileName, masterPath, PMS, pRef, skipcheck.Checked, logCheck.Checked, log, threshold, exePath, csvName);
+                });
+               
                 
                 button1.Enabled = true;
              

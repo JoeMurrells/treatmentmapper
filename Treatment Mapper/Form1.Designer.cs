@@ -32,19 +32,13 @@ namespace Treatment_Mapper
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.bupa = new System.Windows.Forms.CheckBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.csvcheckbox = new System.Windows.Forms.CheckBox();
             this.skipcheck = new System.Windows.Forms.CheckBox();
             this.logCheck = new System.Windows.Forms.CheckBox();
-            this.thresholdValue = new System.Windows.Forms.NumericUpDown();
-            this.label5 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.thresholdValue)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -75,24 +69,6 @@ namespace Treatment_Mapper
             this.bupa.TabIndex = 4;
             this.bupa.Text = "BUPA";
             this.bupa.UseVisualStyleBackColor = true;
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(134, 137);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(65, 20);
-            this.numericUpDown1.TabIndex = 5;
-            this.numericUpDown1.Visible = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(133, 121);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Accuracy";
-            this.label2.Visible = false;
             // 
             // textBox1
             // 
@@ -152,43 +128,17 @@ namespace Treatment_Mapper
             this.logCheck.Text = "Enable Log";
             this.logCheck.UseVisualStyleBackColor = true;
             // 
-            // thresholdValue
-            // 
-            this.thresholdValue.Location = new System.Drawing.Point(136, 137);
-            this.thresholdValue.Minimum = new decimal(new int[] {
-            70,
-            0,
-            0,
-            0});
-            this.thresholdValue.Name = "thresholdValue";
-            this.thresholdValue.Size = new System.Drawing.Size(65, 20);
-            this.thresholdValue.TabIndex = 13;
-            this.thresholdValue.Value = new decimal(new int[] {
-            90,
-            0,
-            0,
-            0});
-            this.thresholdValue.Visible = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(86, 118);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(115, 13);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Confirmation Threshold";
-            this.label5.Visible = false;
-            // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Items.AddRange(new object[] {
             "R4",
-            "EXACT",
+            "EXACT/SOEL",
             "BRIDGEIT",
             "ISMILE",
-            "SFD"});
+            "SFD",
+            "EDGE",
+            "AERONA"});
             this.listBox1.Location = new System.Drawing.Point(6, 64);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(189, 21);
@@ -200,24 +150,18 @@ namespace Treatment_Mapper
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(205, 224);
             this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.thresholdValue);
             this.Controls.Add(this.logCheck);
             this.Controls.Add(this.skipcheck);
             this.Controls.Add(this.csvcheckbox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.bupa);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form1";
             this.Text = "Treatment Mapper";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.thresholdValue)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -228,16 +172,12 @@ namespace Treatment_Mapper
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox bupa;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox csvcheckbox;
         private System.Windows.Forms.CheckBox skipcheck;
         private System.Windows.Forms.CheckBox logCheck;
-        private System.Windows.Forms.NumericUpDown thresholdValue;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox listBox1;
     }
 }

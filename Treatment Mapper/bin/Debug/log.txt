@@ -1,8 +1,0 @@
-01/04/2022 12:32:52,Source CSV = C:\test\test maps\BUPA_EXACT_TEST_treatment_map-test.csv
-01/04/2022 12:32:52,Master CSV = C:\Users\Job0\source\repos\Treatment Mapper\Treatment Mapper\bin\Debug\MasterCSV\master.csv
-01/04/2022 12:32:52,Practice Ref = test
-01/04/2022 12:32:52,System = EXACT
-Description, Nomenclature, Match Value, Code Used
-note,tooth specific note,90,9995
-examination,exam,90,100
-missing tooth,missing tooth,100,9980
