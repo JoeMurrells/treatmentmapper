@@ -11,7 +11,7 @@ namespace Treatment_Mapper
 {
     public class MASTER
     {
-       public int code { get; set; }
+       public string code { get; set; }
        public string nomenclature { get; set; }
 
     }

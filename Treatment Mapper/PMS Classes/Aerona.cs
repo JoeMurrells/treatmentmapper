@@ -10,7 +10,7 @@ namespace Treatment_Mapper.PMS_Classes
     {
         public string id { get; set; }
         public string occurrence { get; set; }
-        public int? dentally_code { get; set; }
+        public string dentally_code { get; set; }
         public string aerona_description { get; set; }
     }
 }

@@ -35,7 +35,7 @@ namespace Treatment_Mapper
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.csvcheckbox = new System.Windows.Forms.CheckBox();
+            this.scotlandcheckbox = new System.Windows.Forms.CheckBox();
             this.skipcheck = new System.Windows.Forms.CheckBox();
             this.logCheck = new System.Windows.Forms.CheckBox();
             this.listBox1 = new System.Windows.Forms.ComboBox();
@@ -96,15 +96,15 @@ namespace Treatment_Mapper
             this.label4.Text = "label4";
             this.label4.Visible = false;
             // 
-            // csvcheckbox
+            // scotlandcheckbox
             // 
-            this.csvcheckbox.AutoSize = true;
-            this.csvcheckbox.Location = new System.Drawing.Point(6, 137);
-            this.csvcheckbox.Name = "csvcheckbox";
-            this.csvcheckbox.Size = new System.Drawing.Size(105, 17);
-            this.csvcheckbox.TabIndex = 10;
-            this.csvcheckbox.Text = "CSV Comparison";
-            this.csvcheckbox.UseVisualStyleBackColor = true;
+            this.scotlandcheckbox.AutoSize = true;
+            this.scotlandcheckbox.Location = new System.Drawing.Point(67, 91);
+            this.scotlandcheckbox.Name = "scotlandcheckbox";
+            this.scotlandcheckbox.Size = new System.Drawing.Size(64, 17);
+            this.scotlandcheckbox.TabIndex = 10;
+            this.scotlandcheckbox.Text = "Scottish";
+            this.scotlandcheckbox.UseVisualStyleBackColor = true;
             // 
             // skipcheck
             // 
@@ -121,7 +121,7 @@ namespace Treatment_Mapper
             // logCheck
             // 
             this.logCheck.AutoSize = true;
-            this.logCheck.Location = new System.Drawing.Point(67, 91);
+            this.logCheck.Location = new System.Drawing.Point(5, 137);
             this.logCheck.Name = "logCheck";
             this.logCheck.Size = new System.Drawing.Size(80, 17);
             this.logCheck.TabIndex = 12;
@@ -152,7 +152,7 @@ namespace Treatment_Mapper
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.logCheck);
             this.Controls.Add(this.skipcheck);
-            this.Controls.Add(this.csvcheckbox);
+            this.Controls.Add(this.scotlandcheckbox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox1);
@@ -175,7 +175,7 @@ namespace Treatment_Mapper
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.CheckBox csvcheckbox;
+        private System.Windows.Forms.CheckBox scotlandcheckbox;
         private System.Windows.Forms.CheckBox skipcheck;
         private System.Windows.Forms.CheckBox logCheck;
         private System.Windows.Forms.ComboBox listBox1;

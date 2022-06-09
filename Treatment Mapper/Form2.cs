@@ -18,22 +18,26 @@ namespace Treatment_Mapper
         {
             InitializeComponent();
 
-            CodeValidation codes = new CodeValidation();
-
-            foreach (KeyValuePair<string, int> C in codes.Codes)
-            {
-                resultsBox.AppendText($"{C.Key},{C.Value}" + Environment.NewLine);
-            }
-            
         }
         private void searchBox_TextChanged(object sender, EventArgs e)
         {
             CodeValidation codes = new CodeValidation();
+            Dictionary<string,string> codeList = new Dictionary<string,string>();
 
-            var lines = codes.Codes.Select(kv => kv.Key + ": " + kv.Value.ToString());
+                if(scottishcheck.Checked == true)
+                {
+                    codeList = codes.sco_valid_codes;
+                }
+                else
+                {
+                    codeList = codes.eng_valid_codes;
+                }
+            
+            
+            var lines = codeList.Select(kv => kv.Key + ": " + kv.Value.ToString());
             resultsBox.Clear();
 
-            foreach (KeyValuePair<string, int> C in codes.Codes)
+            foreach (KeyValuePair<string, string> C in codeList)
             {
                 var textMatch = Fuzz.WeightedRatio(searchBox.Text.ToLower(), C.Key.ToLower());
                 var codeMatch = Fuzz.WeightedRatio(searchBox.Text.ToLower(), C.Value.ToString());

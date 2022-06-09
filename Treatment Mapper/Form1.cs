@@ -20,7 +20,6 @@ namespace Treatment_Mapper
         {
             InitializeComponent();
         }
-
         private async void button1_Click(object sender, EventArgs e)
         {
             string pRef = textBox1.Text;
@@ -48,34 +47,34 @@ namespace Treatment_Mapper
                 return;
             }
 
-            if (bupa.Checked == true && csvcheckbox.Checked == false)
+            if (bupa.Checked == true && scotlandcheckbox.Checked == false)
             {
                 masterPath = $@"{exePath}\MasterCSV\bupa_master.csv";
                 File.Copy(masterPath, $@"{exePath}\backup\bupa_master.csv", true);
                 threshold = 95;
             }
-            else if (bupa.Checked == false && csvcheckbox.Checked == true)
+            else if (bupa.Checked == false && scotlandcheckbox.Checked == true)
             {
-                masterPath = $@"{exePath}\MasterCSV\comparisonmaster.csv";
-                threshold = 100;
+                masterPath = $@"{exePath}\MasterCSV\sco_master.csv";
+                File.Copy(masterPath, $@"{exePath}\backup\sco_master.csv", true);
             }
-            else if (bupa.Checked == true && csvcheckbox.Checked == true)
+            else if (bupa.Checked == true && scotlandcheckbox.Checked == true)
             {
                 MessageBox.Show("Please only tick 1 option");
                 return;
             }
             else 
             {
-                masterPath = $@"{exePath}\MasterCSV\master.csv";
-                File.Copy(masterPath, $@"{exePath}\backup\master.csv", true);
+                masterPath = $@"{exePath}\MasterCSV\eng_master.csv";
+                File.Copy(masterPath, $@"{exePath}\backup\eng_master.csv", true);
             }
 
-            if (PMS == "R4" || PMS == "SFD" || PMS == "EDGE" || PMS == "AERONA")
+            if (PMS == "R4" || PMS == "SFD" || PMS == "EDGE" || PMS == "AERONA" || PMS == "BRIDGEIT")
 
             {
                 csvName = "dentally_treatments.csv";
             }
-            else if (PMS == "EXACT/SOEL" || PMS == "BRIDGEIT")
+            else if (PMS == "EXACT/SOEL")
             {
                 csvName = "treatment_map.csv";
             }

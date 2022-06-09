@@ -20,7 +20,7 @@ namespace Treatment_Mapper
 {
     public static class MasterComparison
     {
-        public static int? MapFromMaster(List<MASTER> masterlist, Object TDesc, Object TCode, int thresholdValue, string masterPath, List<int> valid_codes,string exePath,bool logcheck,Logger log)
+        public static string MapFromMaster(List<MASTER> masterlist, Object TDesc, Object TCode, int thresholdValue, string masterPath,string exePath,bool logcheck,Logger log)
         {
 
             var results = new ConcurrentBag<Results>();
@@ -56,12 +56,12 @@ namespace Treatment_Mapper
                              orderby r.matchResult descending
                              select r.nomenResult).FirstOrDefault();
 
-            if (finalMatch <= thresholdValue || finalResult <= 0)
+            if (finalMatch <= thresholdValue || finalResult == "")
             {
-                var inputResult = UserInput.UserCodeInput(TDesc, finalDesc, finalMatch, valid_codes, masterPath, ref TCode, finalResult);
+                var inputResult = UserInput.UserCodeInput(TDesc, masterPath, ref TCode, finalResult);
                 while (inputResult == DialogResult.Retry)
                 {
-                    inputResult = UserInput.UserCodeInput(TDesc, finalDesc, finalMatch, valid_codes, masterPath, ref TCode, finalResult);
+                    inputResult = UserInput.UserCodeInput(TDesc, masterPath, ref TCode, finalResult);
                 }
             }
             else { TCode = finalResult; }
@@ -72,7 +72,7 @@ namespace Treatment_Mapper
             }
             
 
-            int? outputCode = Convert.ToInt16(TCode);
+            string outputCode = TCode.ToString();
             return outputCode;
         }
     }

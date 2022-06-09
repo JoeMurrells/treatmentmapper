@@ -12,21 +12,39 @@ namespace Treatment_Mapper.Mapping_Functions
 {
     public static class UserInput
     {
-        public static DialogResult UserCodeInput(Object TDesc, string finalDesc, int finalMatch, List<int> valid_codes, string masterPath, ref object TCode, int? finalResult)
+        public static DialogResult UserCodeInput(Object TDesc, string masterPath, ref object TCode, string finalResult)
         {
             using(Form2 Form2 = new Form2 {StartPosition = FormStartPosition.CenterScreen} )
             {
+                CodeValidation codes = new CodeValidation();
+                Dictionary<String,String> codeList = new Dictionary<String,String>();
+
+                if(masterPath.Contains("eng_master.csv"))
+                {
+                    codeList = codes.eng_valid_codes;
+                }
+                else if(masterPath.Contains("sco_master.csv"))
+                {
+                    codeList = codes.sco_valid_codes;
+                    Form2.scottishcheck.Checked = true;
+                }
+
                 Form2.inputdescBox.Text = TDesc.ToString();
-                Form2.matchBox.Text = finalDesc;
-                Form2.codeBox.Text = finalResult.ToString(); ;
+                Form2.matchBox.Text = codeList[finalResult];
+                Form2.codeBox.Text = finalResult; 
 
                 Form2.AcceptButton = Form2.okButton;
                 Form2.okButton.DialogResult = DialogResult.Retry;
 
+                foreach (KeyValuePair<string, string> C in codeList)
+                {
+                    Form2.resultsBox.AppendText($"{C.Key},{C.Value}" + Environment.NewLine);
+                }
+
                 Form2.ShowDialog();
 
                 DialogResult result;
-                if (int.TryParse(Form2.codeBox.Text, out int convertedCode) == false || valid_codes.Contains(Convert.ToInt16(Form2.codeBox.Text)) == false)
+                if (int.TryParse(Form2.codeBox.Text, out int convertedCode) == false || codeList.ContainsKey(Form2.codeBox.Text) == false)
                 {
                     MessageBox.Show("Invalid Code Entered");
 
