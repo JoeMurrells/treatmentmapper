@@ -161,7 +161,7 @@ namespace Treatment_Mapper
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form1";
-            this.Text = "Treatment Mapper";
+            this.Text = "Treatment Mapper v1.5";
             this.ResumeLayout(false);
             this.PerformLayout();
 
