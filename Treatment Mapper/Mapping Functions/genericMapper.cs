@@ -18,7 +18,6 @@ namespace Treatment_Mapper
                 int p = 0;
 
                 var masterlist = new MasterFunctions(masterPath);
-                var codeValidation = new CodeValidation();
                 
 
                 var outputcsv = CSV.GenerateOutputCSV(exePath, pRef, csvName, system);

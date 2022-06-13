@@ -28,6 +28,11 @@ namespace Treatment_Mapper.Mapping_Functions
                     codeList = codes.sco_valid_codes;
                     Form2.scottishcheck.Checked = true;
                 }
+                else if (masterPath.Contains("bupa_master.csv"))
+                {
+                    codeList = codes.bupa_valid_codes;
+                    Form2.bupacheck.Checked = true;
+                }
 
                 Form2.inputdescBox.Text = TDesc.ToString();
                 Form2.matchBox.Text = codeList[finalResult];
@@ -44,7 +49,7 @@ namespace Treatment_Mapper.Mapping_Functions
                 Form2.ShowDialog();
 
                 DialogResult result;
-                if (int.TryParse(Form2.codeBox.Text, out int convertedCode) == false || codeList.ContainsKey(Form2.codeBox.Text) == false)
+                if (codeList.ContainsKey(Form2.codeBox.Text) == false)
                 {
                     MessageBox.Show("Invalid Code Entered");
 
@@ -55,9 +60,9 @@ namespace Treatment_Mapper.Mapping_Functions
                 {
                     result = DialogResult.OK;
 
-                    MasterFunctions.UpdateMasterList(masterPath, TDesc, convertedCode);
+                    MasterFunctions.UpdateMasterList(masterPath, TDesc, Form2.codeBox.Text);
                 }
-                TCode = convertedCode;
+                TCode = Form2.codeBox.Text;
 
 
                 return result;

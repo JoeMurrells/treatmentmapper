@@ -28,6 +28,10 @@ namespace Treatment_Mapper
                 {
                     codeList = codes.sco_valid_codes;
                 }
+                else if(bupacheck.Checked == true)
+                {
+                    codeList = codes.bupa_valid_codes;
+                }
                 else
                 {
                     codeList = codes.eng_valid_codes;

@@ -40,6 +40,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.okButton = new System.Windows.Forms.Button();
             this.scottishcheck = new System.Windows.Forms.CheckBox();
+            this.bupacheck = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // resultsBox
@@ -145,17 +146,29 @@
             this.scottishcheck.AutoSize = true;
             this.scottishcheck.Location = new System.Drawing.Point(898, 208);
             this.scottishcheck.Name = "scottishcheck";
-            this.scottishcheck.Size = new System.Drawing.Size(80, 17);
+            this.scottishcheck.Size = new System.Drawing.Size(92, 17);
             this.scottishcheck.TabIndex = 11;
-            this.scottishcheck.Text = "checkBox1";
+            this.scottishcheck.Text = "scottishcheck";
             this.scottishcheck.UseVisualStyleBackColor = true;
             this.scottishcheck.Visible = false;
+            // 
+            // bupacheck
+            // 
+            this.bupacheck.AutoSize = true;
+            this.bupacheck.Location = new System.Drawing.Point(898, 228);
+            this.bupacheck.Name = "bupacheck";
+            this.bupacheck.Size = new System.Drawing.Size(80, 17);
+            this.bupacheck.TabIndex = 12;
+            this.bupacheck.Text = "bupacheck";
+            this.bupacheck.UseVisualStyleBackColor = true;
+            this.bupacheck.Visible = false;
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1042, 581);
+            this.Controls.Add(this.bupacheck);
             this.Controls.Add(this.scottishcheck);
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.label5);
@@ -188,5 +201,6 @@
         public System.Windows.Forms.Button okButton;
         public System.Windows.Forms.TextBox resultsBox;
         public System.Windows.Forms.CheckBox scottishcheck;
+        public System.Windows.Forms.CheckBox bupacheck;
     }
 }
