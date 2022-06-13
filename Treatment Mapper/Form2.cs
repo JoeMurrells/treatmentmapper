@@ -44,7 +44,7 @@ namespace Treatment_Mapper
             foreach (KeyValuePair<string, string> C in codeList)
             {
                 var textMatch = Fuzz.WeightedRatio(searchBox.Text.ToLower(), C.Key.ToLower());
-                var codeMatch = Fuzz.WeightedRatio(searchBox.Text.ToLower(), C.Value.ToString());
+                var codeMatch = Fuzz.WeightedRatio(searchBox.Text.ToLower(), C.Value.ToLower());
 
 
                 if (textMatch > 80 || codeMatch > 80)
