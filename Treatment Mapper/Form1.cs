@@ -52,6 +52,7 @@ namespace Treatment_Mapper
                 masterPath = $@"{exePath}\MasterCSV\bupa_master.csv";
                 File.Copy(masterPath, $@"{exePath}\backup\bupa_master.csv", true);
                 threshold = 95;
+                skipcheck.Checked = false;
             }
             else if (bupa.Checked == false && scotlandcheckbox.Checked == true)
             {

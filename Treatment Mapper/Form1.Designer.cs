@@ -121,7 +121,7 @@ namespace Treatment_Mapper
             // logCheck
             // 
             this.logCheck.AutoSize = true;
-            this.logCheck.Location = new System.Drawing.Point(5, 137);
+            this.logCheck.Location = new System.Drawing.Point(6, 137);
             this.logCheck.Name = "logCheck";
             this.logCheck.Size = new System.Drawing.Size(80, 17);
             this.logCheck.TabIndex = 12;
