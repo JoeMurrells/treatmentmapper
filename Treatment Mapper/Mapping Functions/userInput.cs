@@ -35,7 +35,16 @@ namespace Treatment_Mapper.Mapping_Functions
                 }
 
                 Form2.inputdescBox.Text = TDesc.ToString();
-                Form2.matchBox.Text = codeList[finalResult];
+
+                if(codeList.ContainsKey(finalResult))
+                {
+                    Form2.matchBox.Text = codeList[finalResult];
+                }
+                else
+                {
+                    Form2.matchBox.Text = "";
+                }
+                
                 Form2.codeBox.Text = finalResult; 
 
                 Form2.AcceptButton = Form2.okButton;
