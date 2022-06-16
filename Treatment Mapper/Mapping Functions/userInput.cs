@@ -42,7 +42,7 @@ namespace Treatment_Mapper.Mapping_Functions
                 }
                 else
                 {
-                    Form2.matchBox.Text = "";
+                    Form2.matchBox.Text = "ERROR CODE EXISTS IN MASTER CSV BUT IS INVALID, CHECK MASTER CSV";
                 }
                 
                 Form2.codeBox.Text = finalResult; 
