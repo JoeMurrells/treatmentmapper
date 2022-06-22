@@ -28,11 +28,9 @@ namespace Treatment_Mapper
             Parallel.ForEach(masterlist, M =>
             {
 
-                string description = TDesc.ToString();
-                description = description.ToLower();
+                string description = TDesc.ToString().ToLower();
 
-                string nomenclature = M.nomenclature.ToString();
-                nomenclature = nomenclature.ToLower();
+                string nomenclature = M.nomenclature.ToString().ToLower();
 
 
                 ThreadLocal<int> match = new ThreadLocal<int>
@@ -56,7 +54,7 @@ namespace Treatment_Mapper
                              orderby r.matchResult descending
                              select r.nomenResult).FirstOrDefault();
 
-            if (finalMatch <= thresholdValue || finalResult == "")
+            if (finalMatch < thresholdValue || finalResult == "")
             {
                 var inputResult = UserInput.UserCodeInput(TDesc, masterPath, ref TCode, finalResult);
                 while (inputResult == DialogResult.Retry)
@@ -72,8 +70,8 @@ namespace Treatment_Mapper
             }
             
 
-            string outputCode = TCode.ToString();
-            return outputCode;
+            return TCode.ToString();
+            
         }
     }
 }
