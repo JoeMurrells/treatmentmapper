@@ -34,6 +34,9 @@ namespace Treatment_Mapper
                 case "AERONA":
                     outputcsv.WriteHeader<Aerona>();
                     break;
+                case "ASCEND":
+                    outputcsv.WriteHeader<Ascend>();
+                    break;
             }
             outputcsv.NextRecord();
             return outputcsv;
@@ -87,6 +90,13 @@ namespace Treatment_Mapper
             var csv = new CsvReader(reader, System.Globalization.CultureInfo.InvariantCulture);
             var Aerona = csv.GetRecords<Aerona>();
             return Aerona;
+        }
+        public static IEnumerable<Ascend> ReadAscendCSV(string readerpath)
+        {
+            var reader = new StreamReader(readerpath);
+            var csv = new CsvReader(reader, System.Globalization.CultureInfo.InvariantCulture);
+            var Ascend = csv.GetRecords<Ascend>();
+            return Ascend;
         }
     }
 }

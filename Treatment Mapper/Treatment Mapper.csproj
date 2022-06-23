@@ -122,6 +122,7 @@
     <Compile Include="Mapping Functions\userInput.cs" />
     <Compile Include="Master Class\MasterFunctions.cs" />
     <Compile Include="PMS Classes\Aerona.cs" />
+    <Compile Include="PMS Classes\Ascend.cs" />
     <Compile Include="PMS Classes\BridgeIT.cs" />
     <Compile Include="Support Functions\FolderCreation.cs" />
     <Compile Include="Support Functions\CSV.cs" />

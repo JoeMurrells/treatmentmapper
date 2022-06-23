@@ -70,7 +70,7 @@ namespace Treatment_Mapper
                 File.Copy(masterPath, $@"{exePath}\backup\eng_master.csv", true);
             }
 
-            if (PMS == "R4" || PMS == "SFD" || PMS == "EDGE" || PMS == "AERONA" || PMS == "BRIDGEIT")
+            if (PMS == "R4" || PMS == "SFD" || PMS == "EDGE" || PMS == "AERONA" || PMS == "BRIDGEIT" || PMS == "ASCEND")
 
             {
                 csvName = "dentally_treatments.csv";

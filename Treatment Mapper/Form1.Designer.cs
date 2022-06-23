@@ -138,7 +138,8 @@ namespace Treatment_Mapper
             "ISMILE",
             "SFD",
             "EDGE",
-            "AERONA"});
+            "AERONA",
+            "ASCEND"});
             this.listBox1.Location = new System.Drawing.Point(6, 64);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(189, 21);
@@ -161,7 +162,7 @@ namespace Treatment_Mapper
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form1";
-            this.Text = "Treatment Mapper v1.5";
+            this.Text = "Treatment Mapper v1.6";
             this.ResumeLayout(false);
             this.PerformLayout();
 
