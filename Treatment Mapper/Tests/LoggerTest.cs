@@ -44,9 +44,9 @@ namespace Treatment_Mapper.Tests
 
         }
         [Theory]
-        [InlineData(true,"Test 0", 1234, "Final 0", 100,9999)]
-        [InlineData(false, "Test 1", 1111, "Final 1", 99, 9998)]
-        public void UpdateLog_withInlineData(bool logCheck, string objDesc, int objCode, string finalDesc, int finalMatch, int? finalResult)
+        [InlineData(true,"Test 0", "1234", "Final 0", 100,"9999")]
+        [InlineData(false, "Test 1", "1111", "Final 1", 99, "9998")]
+        public void UpdateLog_withInlineData(bool logCheck, string objDesc, string objCode, string finalDesc, int finalMatch, string finalResult)
         {
             R4 T = new R4();
             T.Description = objDesc;

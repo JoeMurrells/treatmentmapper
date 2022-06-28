@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Treatment_Mapper.PMS_Classes
 {
-    public class Aerona
+    public class Ascend
     {
-        public string id { get; set; }
-        public string occurrence { get; set; }
+        public string service_code { get; set; }
+        public string count { get; set; }
         public string dentally_code { get; set; }
-        public string aerona_description { get; set; }
+        public string description { get; set; }
     }
 }

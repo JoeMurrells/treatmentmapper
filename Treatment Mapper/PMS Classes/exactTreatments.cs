@@ -24,7 +24,7 @@ namespace Treatment_Mapper
         public string ada_code { get; set; }
         public int? occurrence { get; set; }
         public string exact_desc { get; set; }
-        public int? dentally_code { get; set; }
+        public string dentally_code { get; set; }
         public string descriptions { get; set; }
 
 

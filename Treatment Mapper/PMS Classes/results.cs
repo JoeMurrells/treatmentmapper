@@ -10,9 +10,9 @@ namespace Treatment_Mapper
     {
         public string nomenResult { get; set; }
         public int matchResult { get; set; }
-        public int? codeResult { get; set; }
+        public string codeResult { get; set; }
 
-        public Results(string nomenResult, int matchResult, int codeResult)
+        public Results(string nomenResult, int matchResult, string codeResult)
         {
             this.nomenResult = nomenResult;
             this.matchResult = matchResult;

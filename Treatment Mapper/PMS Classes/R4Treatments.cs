@@ -20,7 +20,7 @@ namespace Treatment_Mapper
     public class R4
     {
         public string Description { get; set; }
-        public int? DentallyCode { get; set; }
+        public string DentallyCode { get; set; }
 
     }
 }

@@ -23,7 +23,7 @@ namespace Treatment_Mapper
         public int code { get; set; }
         public string nomenclature { get; set; }
         public int count { get; set; }
-        public int? dentally_code { get; set; }
+        public string dentally_code { get; set; }
 
 
     }

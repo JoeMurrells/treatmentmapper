@@ -23,7 +23,7 @@ namespace Treatment_Mapper
             }    
             
         }
-        public void UpdateLog(bool logcheck, Object T, string finalDesc, int finalMatch, int? finalResult, string exePath) 
+        public void UpdateLog(bool logcheck, Object T, string finalDesc, int finalMatch, string finalResult, string exePath) 
         {
 
                 using (var log = new StreamWriter($@"{exePath}\log.txt", append: true))
