@@ -32,8 +32,6 @@ namespace Treatment_Mapper
 
             FolderCreation.CreateFolders(exePath, pRef);
 
-            
-
             File.Delete($@"{exePath}\log.txt");
 
             if (pRef == "") 
@@ -46,31 +44,37 @@ namespace Treatment_Mapper
                 MessageBox.Show("Please select a system");
                 return;
             }
+            switch (regionBox.Text)
+            {
+                case "England":
+                    masterPath = $@"{exePath}\MasterCSV\eng_master.csv";
+                    File.Copy(masterPath, $@"{exePath}\backup\eng_master.csv", true);
+                    break;
+                case "BUPA":
+                    masterPath = $@"{exePath}\MasterCSV\bupa_master.csv";
+                    File.Copy(masterPath, $@"{exePath}\backup\bupa_master.csv", true);
+                    threshold = 95;
+                    skipcheck.Checked = false;
+                    break;
+                case "Scotland":
+                    masterPath = $@"{exePath}\MasterCSV\sco_master.csv";
+                    File.Copy(masterPath, $@"{exePath}\backup\sco_master.csv", true);
+                    break;
+                case "ScotlandNHS":
+                    masterPath = $@"{exePath}\MasterCSV\sco_nhs_master.csv";
+                    File.Copy(masterPath, $@"{exePath}\backup\sco_nhs_master.csv", true);
+                    break;
+                case "Colosseum":
+                    masterPath = $@"{exePath}\MasterCSV\col_master.csv";
+                    File.Copy(masterPath, $@"{exePath}\backup\col_master.csv", true);
+                    break;
+                default:
+                    masterPath = $@"{exePath}\MasterCSV\eng_master.csv";
+                    File.Copy(masterPath, $@"{exePath}\backup\eng_master.csv", true);
+                    break;
+            }
 
-            if (bupa.Checked == true && scotlandcheckbox.Checked == false)
-            {
-                masterPath = $@"{exePath}\MasterCSV\bupa_master.csv";
-                File.Copy(masterPath, $@"{exePath}\backup\bupa_master.csv", true);
-                threshold = 95;
-                skipcheck.Checked = false;
-            }
-            else if (bupa.Checked == false && scotlandcheckbox.Checked == true)
-            {
-                masterPath = $@"{exePath}\MasterCSV\sco_master.csv";
-                File.Copy(masterPath, $@"{exePath}\backup\sco_master.csv", true);
-            }
-            else if (bupa.Checked == true && scotlandcheckbox.Checked == true)
-            {
-                MessageBox.Show("Please only tick 1 option");
-                return;
-            }
-            else 
-            {
-                masterPath = $@"{exePath}\MasterCSV\eng_master.csv";
-                File.Copy(masterPath, $@"{exePath}\backup\eng_master.csv", true);
-            }
-
-            if (PMS == "R4" || PMS == "SFD" || PMS == "EDGE" || PMS == "AERONA" || PMS == "BRIDGEIT" || PMS == "ASCEND")
+            if (PMS == "R4" || PMS == "SFD" || PMS == "EDGE" || PMS == "AERONA" || PMS == "BRIDGEIT" || PMS == "ASCEND" || PMS == "ISMILE")
 
             {
                 csvName = "dentally_treatments.csv";

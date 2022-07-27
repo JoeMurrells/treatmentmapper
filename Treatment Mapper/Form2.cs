@@ -24,13 +24,20 @@ namespace Treatment_Mapper
             CodeValidation codes = new CodeValidation();
             Dictionary<string,string> codeList = new Dictionary<string,string>();
 
-                if(scottishcheck.Checked == true)
+                if(scottishcheck.Checked)
                 {
                     codeList = codes.sco_valid_codes;
                 }
-                else if(bupacheck.Checked == true)
+                else if(bupacheck.Checked)
                 {
                     codeList = codes.bupa_valid_codes;
+                }
+                else if(colcheck.Checked){
+                    codeList = codes.col_valid_codes;
+                }
+                else if (sconhscheck.Checked)
+                {
+                    codeList = codes.sco_nhs_valid_codes;
                 }
                 else
                 {

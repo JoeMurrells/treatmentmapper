@@ -33,6 +33,16 @@ namespace Treatment_Mapper.Mapping_Functions
                     codeList = codes.bupa_valid_codes;
                     Form2.bupacheck.Checked = true;
                 }
+                else if (masterPath.Contains("col_master.csv"))
+                {
+                    codeList = codes.col_valid_codes;
+                    Form2.colcheck.Checked = true;
+                }
+                else if (masterPath.Contains("sco_nhs_master.csv"))
+                {
+                    codeList = codes.sco_nhs_valid_codes;
+                    Form2.sconhscheck.Checked = true;
+                }
 
                 Form2.inputdescBox.Text = TDesc.ToString();
 

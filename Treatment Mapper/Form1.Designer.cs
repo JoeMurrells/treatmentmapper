@@ -31,19 +31,19 @@ namespace Treatment_Mapper
         {
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.bupa = new System.Windows.Forms.CheckBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.scotlandcheckbox = new System.Windows.Forms.CheckBox();
             this.skipcheck = new System.Windows.Forms.CheckBox();
             this.logCheck = new System.Windows.Forms.CheckBox();
             this.listBox1 = new System.Windows.Forms.ComboBox();
+            this.regionBox = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(5, 160);
+            this.button1.Location = new System.Drawing.Point(5, 171);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(194, 46);
             this.button1.TabIndex = 0;
@@ -59,16 +59,6 @@ namespace Treatment_Mapper
             this.label1.Size = new System.Drawing.Size(63, 13);
             this.label1.TabIndex = 3;
             this.label1.Text = "Select PMS";
-            // 
-            // bupa
-            // 
-            this.bupa.AutoSize = true;
-            this.bupa.Location = new System.Drawing.Point(6, 91);
-            this.bupa.Name = "bupa";
-            this.bupa.Size = new System.Drawing.Size(55, 17);
-            this.bupa.TabIndex = 4;
-            this.bupa.Text = "BUPA";
-            this.bupa.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
@@ -89,29 +79,19 @@ namespace Treatment_Mapper
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(40, 209);
+            this.label4.Location = new System.Drawing.Point(40, 220);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(35, 13);
             this.label4.TabIndex = 9;
             this.label4.Text = "label4";
             this.label4.Visible = false;
             // 
-            // scotlandcheckbox
-            // 
-            this.scotlandcheckbox.AutoSize = true;
-            this.scotlandcheckbox.Location = new System.Drawing.Point(67, 91);
-            this.scotlandcheckbox.Name = "scotlandcheckbox";
-            this.scotlandcheckbox.Size = new System.Drawing.Size(64, 17);
-            this.scotlandcheckbox.TabIndex = 10;
-            this.scotlandcheckbox.Text = "Scottish";
-            this.scotlandcheckbox.UseVisualStyleBackColor = true;
-            // 
             // skipcheck
             // 
             this.skipcheck.AutoSize = true;
             this.skipcheck.Checked = true;
             this.skipcheck.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.skipcheck.Location = new System.Drawing.Point(6, 114);
+            this.skipcheck.Location = new System.Drawing.Point(6, 131);
             this.skipcheck.Name = "skipcheck";
             this.skipcheck.Size = new System.Drawing.Size(145, 17);
             this.skipcheck.TabIndex = 11;
@@ -121,7 +101,7 @@ namespace Treatment_Mapper
             // logCheck
             // 
             this.logCheck.AutoSize = true;
-            this.logCheck.Location = new System.Drawing.Point(6, 137);
+            this.logCheck.Location = new System.Drawing.Point(6, 154);
             this.logCheck.Name = "logCheck";
             this.logCheck.Size = new System.Drawing.Size(80, 17);
             this.logCheck.TabIndex = 12;
@@ -145,24 +125,47 @@ namespace Treatment_Mapper
             this.listBox1.Size = new System.Drawing.Size(189, 21);
             this.listBox1.TabIndex = 15;
             // 
+            // regionBox
+            // 
+            this.regionBox.FormattingEnabled = true;
+            this.regionBox.Items.AddRange(new object[] {
+            "England",
+            "Scotland",
+            "ScotlandNHS",
+            "BUPA",
+            "Colosseum"});
+            this.regionBox.Location = new System.Drawing.Point(6, 104);
+            this.regionBox.Name = "regionBox";
+            this.regionBox.Size = new System.Drawing.Size(189, 21);
+            this.regionBox.TabIndex = 16;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 88);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(108, 13);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "Select Region/Group";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(205, 224);
+            this.ClientSize = new System.Drawing.Size(205, 234);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.regionBox);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.logCheck);
             this.Controls.Add(this.skipcheck);
-            this.Controls.Add(this.scotlandcheckbox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.bupa);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form1";
-            this.Text = "Treatment Mapper v1.6";
+            this.Text = "Treatment Mapper v1.7";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -172,14 +175,14 @@ namespace Treatment_Mapper
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox bupa;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.CheckBox scotlandcheckbox;
         private System.Windows.Forms.CheckBox skipcheck;
         private System.Windows.Forms.CheckBox logCheck;
         private System.Windows.Forms.ComboBox listBox1;
+        private System.Windows.Forms.ComboBox regionBox;
+        private System.Windows.Forms.Label label2;
     }
 }
 

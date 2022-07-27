@@ -41,6 +41,8 @@
             this.okButton = new System.Windows.Forms.Button();
             this.scottishcheck = new System.Windows.Forms.CheckBox();
             this.bupacheck = new System.Windows.Forms.CheckBox();
+            this.colcheck = new System.Windows.Forms.CheckBox();
+            this.sconhscheck = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // resultsBox
@@ -163,11 +165,35 @@
             this.bupacheck.UseVisualStyleBackColor = true;
             this.bupacheck.Visible = false;
             // 
+            // colcheck
+            // 
+            this.colcheck.AutoSize = true;
+            this.colcheck.Location = new System.Drawing.Point(898, 164);
+            this.colcheck.Name = "colcheck";
+            this.colcheck.Size = new System.Drawing.Size(106, 17);
+            this.colcheck.TabIndex = 13;
+            this.colcheck.Text = "colosseumcheck";
+            this.colcheck.UseVisualStyleBackColor = true;
+            this.colcheck.Visible = false;
+            // 
+            // sconhscheck
+            // 
+            this.sconhscheck.AutoSize = true;
+            this.sconhscheck.Location = new System.Drawing.Point(898, 187);
+            this.sconhscheck.Name = "sconhscheck";
+            this.sconhscheck.Size = new System.Drawing.Size(85, 17);
+            this.sconhscheck.TabIndex = 14;
+            this.sconhscheck.Text = "scottishNHS";
+            this.sconhscheck.UseVisualStyleBackColor = true;
+            this.sconhscheck.Visible = false;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1042, 581);
+            this.Controls.Add(this.sconhscheck);
+            this.Controls.Add(this.colcheck);
             this.Controls.Add(this.bupacheck);
             this.Controls.Add(this.scottishcheck);
             this.Controls.Add(this.okButton);
@@ -202,5 +228,7 @@
         public System.Windows.Forms.TextBox resultsBox;
         public System.Windows.Forms.CheckBox scottishcheck;
         public System.Windows.Forms.CheckBox bupacheck;
+        public System.Windows.Forms.CheckBox colcheck;
+        public System.Windows.Forms.CheckBox sconhscheck;
     }
 }
